@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Emman Sadiang-abay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="index.html">
+                <h1>Emman Sadiang-abay</h1>
+            </a>
+            <p>Front-End Developer | Software Developer</p>
+            <nav>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <!-- Projects Intro -->
+        <section class="intro">
+            <h2>My Projects</h2>
+            <p>
+                Here are some of the projects I've worked on. Each of them highlights my skills in front-end development, from interactive user interfaces to responsive designs.
+            </p>
+        </section>
+
+        <!-- Project List Section -->
+        <section class="projects">
+            <h2>Featured Projects</h2>
+            <div class="news-layout">
+                <!-- Project 1 -->
+                <div class="news-content">
+                    <img src="./Project/project1.jpg" alt="Hotel Website" class="project-image" id="image1">
+                    <h3>Project 1: Hotel Website</h3>
+                    <p>A modern and responsive website for a luxury hotel, featuring elegant design and interactive elements.</p>
+                    <a href="project1.html" class="https://engrkulot.github.io/88Hotel.com/">View Project</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="news-content">
+                    <img src="./Project/project2.jpg" alt="E-commerce Website" class="project-image" id="image2">
+                    <h3>Project 2: E-commerce Website</h3>
+                    <p>An e-commerce platform with intuitive navigation and smooth user experience, built with modern web technologies.</p>
+                    <a href="project2.html" class="https://engrkulot.github.io/ryucre8.services/">View Project</a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="news-content">
+                    <img src="./Project/project3.jpg" alt="Portfolio Website" class="project-image" id="image3">
+                    <h3>Project 3: Family Website</h3>
+                    <p>A personal Family website to showcase my skills and projects.</p>
+                    <a href="project3.html" class="https://engrkulot.github.io/FAM/">View Project</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Emman Sadiang-abay. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to toggle the 'enlarged' class on the clicked image
+        function toggleImageSize(imageId) {
+            const image = document.getElementById(imageId);
+            image.classList.toggle('enlarged');
+        }
+
+        // Add event listeners to images to make them clickable
+        document.querySelectorAll('.project-image').forEach(img => {
+            img.addEventListener('click', () => {
+                toggleImageSize(img.id);
+            });
+        });
+    </script>
+
+</body>
+</html>
