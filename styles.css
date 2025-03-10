@@ -385,6 +385,7 @@ nav ul li a:hover {
     margin: 0 auto;
     font-family: 'Georgia', serif;
     line-height: 1.6;
+    word-wrap: break-word; /* To prevent overflow */
 }
 
 .contact-info h2 {
@@ -401,6 +402,7 @@ nav ul li a:hover {
     font-size: 1.2em;
     margin-bottom: 30px;
     line-height: 1.5;
+    word-wrap: break-word; /* Ensure wrapping for long text */
 }
 
 .contact-info ul {
@@ -418,6 +420,7 @@ nav ul li a:hover {
     color: #3498db;
     transition: color 0.3s;
     font-family: 'Roboto', sans-serif;
+    display: block; /* To make links display vertically */
 }
 
 .contact-info ul li a:hover {
@@ -479,5 +482,10 @@ footer p {
     .contact-info ul li {
         font-size: 1.1em;
     }
-}
 
+    /* Adjust links and ensure no overflow */
+    .contact-info ul li a {
+        word-wrap: break-word; /* Fix for long URLs or emails */
+        font-size: 1em; /* Adjust font size for mobile */
+    }
+}
