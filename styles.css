@@ -78,6 +78,9 @@ nav ul li a:hover {
     flex: 1;
     min-width: 250px;
 }
+.news-content p {
+    text-align: justify;
+}
 .news-content h2 {
     font-size: 2em;
     text-transform: uppercase;
@@ -198,6 +201,9 @@ header nav ul li a:hover {
     line-height: 1.8;
     margin-bottom: 40px;
 }
+.intro p {
+    text-align: justify;
+}
 
 .intro h2 {
     font-size: 2.5rem;
@@ -286,8 +292,72 @@ footer {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
-
+.skill-box {
+    display: flex;
+    align-items: center; /* Align items properly */
+    justify-content: center;
+    gap: 8px; /* Adjust spacing between icons */
+    padding: 10px; /* Bawasan ang padding */
+    width: fit-content; /* Sakto lang sa content */
+    max-width: 300px; /* Limit ang laki */
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin: 10px auto; /* Center horizontally */
+    background: white;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+.skill-box i {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+.fa-html5 {
+    color: #E34F26;
+}
+.fa-css3-alt {
+    color: #1572B6;
+}
+.fa-js {
+    color: #F7DF1E;
+}
+.fa-laptop-code {
+    color: #1E90FF;
+}
+.fa-palette {
+    color: #0A66C2;
+}
+.fa-tachometer-alt {
+    color: #32CD32;
+}
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+.icon.pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+}
+.icon.wave {
+    animation: wave 1.5s ease-in-out infinite;
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+}
+.icon.shake {
+    animation: shake 0.5s ease-in-out infinite;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+.icon.float {
+    animation: float 3s ease-in-out infinite;
+}
 
 /*PROJECT*/
 .project-image {
@@ -398,7 +468,7 @@ nav ul li a:hover {
 }
 
 .contact-info p {
-    text-align: center;
+    text-align: justify;
     font-size: 1.2em;
     margin-bottom: 30px;
     line-height: 1.5;
@@ -489,3 +559,4 @@ footer p {
         font-size: 1em; /* Adjust font size for mobile */
     }
 }
+
