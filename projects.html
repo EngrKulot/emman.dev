@@ -6,6 +6,7 @@
     <title>Projects - Emman Sadiang-abay</title>
     <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="./script.js"></script>
 </head>
 <body>
 
@@ -40,35 +41,56 @@
         <section class="projects">
             <h2>Featured Projects</h2>
             <div class="news-layout">
-               
-                
                 <!-- Project 1 -->
                 <div class="news-content">
-                    <img src="project1.jpg" alt="Hotel Website" class="project-image" id="image1">
+                    <img src=".project4.jpg" alt="Loan Genius Landing Page" class="project-image" id="image.1">
+                    <h3>Loan Genius Landing Page</h3>
+                    <p>A high-converting landing page for Loan Genius built using GoHighLevel, focused on lead generation and customer engagement.</p>
+                    <a href="https://app.gohighlevel.com/v2/preview/Ujk7mPym2q2GZxOf5cHS?notrack=true" class="project-link">View Project</a>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="news-content">
+                    <img src=".project1.jpg" alt="Hotel Website" class="project-image" id="image.2">
                     <h3>Hotel Website</h3>
                     <p>A modern and responsive website for a luxury hotel, featuring elegant design and interactive elements.</p>
                     <a href="https://engrkulot.github.io/88Hotel.com/" class="project-link">View Project</a>
                 </div>
-                 
-                <!-- Project 2 -->
-                  <div class="news-content">
-                    <img src="project3.jpg" alt="Portfolio Website" class="project-image" id="image3">
-                    <h3>Family Website</h3>
-                    <p>A personal Family website to showcase my skills and projects.</p>
-                    <a href="https://engrkulot.github.io/FAM/" class="project-link">View Project</a>
-                </div>
 
-
+                
                 <!-- Project 3 -->
-                 <div class="news-content">
-                    <img src="project2.jpg" alt="E-commerce Website" class="project-image" id="image2">
+                <div class="news-content">
+                    <img src=".project2.jpg" alt="E-commerce Website" class="project-image" id="image.3">
                     <h3>E-commerce Website</h3>
                     <p>An e-commerce platform with intuitive navigation and smooth user experience, built with modern web technologies.</p>
                     <a href="https://engrkulot.github.io/ryucre8.services/" class="project-link">View Project</a>
                 </div>
+               
+                <!-- AI Chatbot Workflow -->
+                <div class="news-content chatbot-workflow">
+                    <h3>AI Chatbot Workflow (GoHighLevel)</h3>
+                    <p>Created an AI-powered chatbot using GoHighLevel's workflow automation to engage with website visitors. The chatbot automatically answers frequently asked questions, collects leads, and even schedules appointments.</p>
+                    
+                    <!-- 3 Clickable Images inside the Project Section -->
+                    <div class="project-images">
+                        <img src=".ai1.jpg" alt="Image 1" class="project-image" id="image1" onclick="toggleImageSize('image1')">
+                        <img src=".ai2.jpg" alt="Image 2" class="project-image" id="image2" onclick="toggleImageSize('image2')">
+                        <img src=".ai3.jpg" alt="Image 3" class="project-image" id="image3" onclick="toggleImageSize('image3')">
+                    </div>
 
-
-                
+                    <script>
+                        // Function to toggle the 'enlarged' class on the clicked image
+                        function toggleImageSize(imageId) {
+                            const image = document.getElementById(imageId);
+                            console.log('Image clicked:', imageId); // Check the console for this log
+                    
+                            // Toggle the 'enlarged' class
+                            image.classList.toggle('enlarged');
+                        }
+                    </script>
+    
+                </div>
+  
             </div>
         </section>
     </div>
@@ -78,20 +100,6 @@
         <p>&copy; 2025 Emman Sadiang-abay. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Function to toggle the 'enlarged' class on the clicked image
-        function toggleImageSize(imageId) {
-            const image = document.getElementById(imageId);
-            image.classList.toggle('enlarged');
-        }
-
-        // Add event listeners to images to make them clickable
-        document.querySelectorAll('.project-image').forEach(img => {
-            img.addEventListener('click', () => {
-                toggleImageSize(img.id);
-            });
-        });
-    </script>
-
+    
 </body>
 </html>
