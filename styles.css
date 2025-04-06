@@ -397,7 +397,50 @@ footer {
     text-align: justify;
 }
 
+/* New Skills Section */
+.news-content {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for news-content boxes */
+.news-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Skill-specific icon colors */
+.fa-plug { color: #FF6F61; } /* Automation */
+.fa-cogs { color: #F39C12; } /* Funnels */
+.fa-phone-alt { color: #16A085; } /* Social Media Auto Chat */
+.fa-project-diagram { color: #8E44AD; } /* Workflows */
+
+/* Text styling for skills */
+.news-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.news-content p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+
 /*PROJECT*/
+.project-images {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Adjust the gap between images */
+    flex-wrap: wrap;
+}
+
 .project-image {
     width: 100%;
     max-width: 400px;
@@ -413,17 +456,6 @@ footer {
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow when enlarged */
 }
 
-.project-link {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 1.2em;
-    color: #007BFF;
-    text-decoration: none;
-}
-
-.project-link:hover {
-    text-decoration: underline;
-}
 
 /*contact*/
 body {
