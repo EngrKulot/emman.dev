@@ -437,14 +437,15 @@ footer {
 .project-images {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Adjust the gap between images */
+    gap: 15px;
     flex-wrap: wrap;
 }
 
 .project-image {
     width: 100%;
     max-width: 400px;
-    height: auto;
+    height: 250px; /* Set fixed height */
+    object-fit: cover; /* Ensures images fill the container without stretching */
     border: 3px solid #ddd;
     margin-bottom: 15px;
     cursor: pointer;
