@@ -517,16 +517,18 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
+        // Manual value extraction (working method)
         const nameValue = document.getElementById('name').value;
         const emailValue = document.getElementById('email').value;
         const messageValue = document.getElementById('message').value;
         
         console.log('Sending values:', {
-            from_name: nameValue,
-            from_email: emailValue,
+            name: nameValue,
+            email: emailValue,
             message: messageValue
         });
         
+        // Validate data exists
         if (!nameValue || !emailValue || !messageValue) {
             alert('Please fill all fields');
             return;
@@ -536,19 +538,20 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.disabled = true;
         btn.textContent = 'Sending...';
         
+        // Manual parameter sending - NO ESCAPE CHARACTERS
         emailjs.send('service_3gfo38o', 'template_zej35id', {
-            from_name: nameValue,
-            from_email: emailValue,
+            name: nameValue,
+            email: emailValue,
             message: messageValue
         })
         .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
+            console.log('SUCCESS!', response);
             alert('Message sent successfully! I\'ll get back to you soon.');
             form.reset();
         })
         .catch(function(error) {
-            console.error('FAILED...', error.status, error.text);
-            alert('Failed to send: ' + (error.status || '') + ' ' + (error.text || ''));
+            console.log('FAILED...', error);
+            alert('Failed to send message. Please try again.');
         })
         .finally(function() {
             btn.disabled = false;
@@ -557,6 +560,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
 
 
 
