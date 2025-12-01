@@ -1431,4 +1431,460 @@ section {
 
 
 
+/* ==================== MOBILE RESPONSIVE FIXES ==================== */
+
+/* Mobile Base: 320px - 480px */
+@media (max-width: 480px) {
+    /* Container & Section Spacing */
+    .container {
+        padding: 0 1.25rem;
+    }
+    
+    section {
+        padding: 3.5rem 0;
+    }
+    
+    /* Navigation */
+    .nav-container {
+        padding: 0 1.25rem;
+    }
+    
+    .logo {
+        height: 38px;
+    }
+    
+    .nav-menu.active {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding-top: 70px;
+    }
+    
+    .hero-container {
+        padding: 0 1.25rem;
+    }
+    
+    .hero-title {
+        font-size: 1.85rem;
+        line-height: 1.15;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-buttons {
+        gap: 1rem;
+    }
+    
+    .btn {
+        padding: 0.85rem 1.5rem;
+        font-size: 0.95rem;
+        min-height: 46px;
+    }
+    
+    /* Hero Card */
+    .hero-card {
+        padding: 1.75rem 1.25rem;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .photo-ring {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-card h3 {
+        font-size: 1.25rem;
+    }
+    
+    .hero-card p {
+        font-size: 0.9rem;
+    }
+    
+    /* About Section */
+    .section-title {
+        font-size: 1.85rem;
+    }
+    
+    .section-description {
+        font-size: 0.95rem;
+    }
+    
+    .about-text h3 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    .about-description p {
+        font-size: 0.92rem;
+        line-height: 1.65;
+    }
+    
+    /* Skills Section */
+    .skills-section {
+        padding: 2.5rem 0;
+    }
+    
+    .skills-section h3 {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+    }
+    
+    .skill-logo-item {
+        padding: 1rem 1.25rem;
+    }
+    
+    /* Projects Section */
+    .projects-level10 {
+        padding: 4rem 0;
+    }
+    
+    .projects-header {
+        padding: 0 1.25rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .projects-featured {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+    
+    .projects-title-outline {
+        font-size: 2.25rem;
+        -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.8);
+        letter-spacing: 1px;
+    }
+    
+    .parallax-text {
+        font-size: 3.5rem;
+    }
+    
+    .view-all-link {
+        font-size: 0.8rem;
+        margin-top: 1.5rem;
+    }
+    
+    .projectsSwiper {
+        padding: 1.5rem 0 3.5rem 0;
+    }
+    
+    .project-image-wrapper {
+        height: 240px;
+        border-radius: 8px;
+    }
+    
+    .project-overlay {
+        padding: 1.25rem;
+    }
+    
+    .project-overlay-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .project-overlay-content p {
+        font-size: 0.82rem;
+        line-height: 1.35;
+        margin-bottom: 0.75rem;
+    }
+    
+    .view-project-btn {
+        padding: 0.6rem 1.4rem;
+        font-size: 0.75rem;
+        min-height: 42px;
+    }
+    
+    .projectsSwiper .swiper-button-prev,
+    .projectsSwiper .swiper-button-next {
+        width: 38px;
+        height: 38px;
+        bottom: 8px;
+    }
+    
+    .projectsSwiper .swiper-button-prev::after,
+    .projectsSwiper .swiper-button-next::after {
+        font-size: 13px;
+    }
+    
+    /* Contact Section */
+    .contact-form-section h3,
+    .contact-info h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 0.85rem;
+        font-size: 1rem;
+    }
+    
+    .contact-item {
+        padding: 1.15rem;
+        gap: 1rem;
+    }
+    
+    .contact-icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+    }
+    
+    .contact-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .contact-item h4 {
+        font-size: 1rem;
+    }
+    
+    .contact-item p {
+        font-size: 0.9rem;
+    }
+    
+    .social-link {
+        padding: 0.9rem;
+        min-height: 46px;
+    }
+    
+    .social-link svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    /* Resume Section */
+    .resume {
+        padding: 3rem 0;
+    }
+    
+    .resume-card h2 {
+        font-size: 1.75rem;
+    }
+    
+    .resume-card p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 1.75rem 0;
+    }
+    
+    .footer p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablet: 481px - 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        padding: 0 1.75rem;
+    }
+    
+    section {
+        padding: 4.5rem 0;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .hero-card {
+        max-width: 330px;
+    }
+    
+    .photo-ring {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .section-title {
+        font-size: 2.4rem;
+    }
+    
+    .about-image-wrapper {
+        max-width: 320px;
+    }
+    
+    .about-text h3 {
+        font-size: 1.75rem;
+    }
+    
+    .skills-section h3 {
+        font-size: 1.65rem;
+    }
+    
+    .skill-logo-icon {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .projects-title-outline {
+        font-size: 3.25rem;
+    }
+    
+    .parallax-text {
+        font-size: 6.5rem;
+    }
+    
+    .project-image-wrapper {
+        height: 280px;
+    }
+    
+    .projectsSwiper {
+        padding: 2rem 0 4rem 0;
+    }
+    
+    .projectsSwiper .swiper-button-prev,
+    .projectsSwiper .swiper-button-next {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+/* Small Tablet/Large Phone: 769px - 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+    
+    .hero-content {
+        gap: 3rem;
+    }
+    
+    .hero-title {
+        font-size: 2.85rem;
+    }
+    
+    .about-content {
+        gap: 3.5rem;
+    }
+    
+    .about-image-wrapper {
+        max-width: 360px;
+    }
+    
+    .projects-title-outline {
+        font-size: 4.25rem;
+    }
+    
+    .parallax-text {
+        font-size: 8.5rem;
+    }
+    
+    .project-image-wrapper {
+        height: 320px;
+    }
+    
+    .projectsSwiper {
+        padding: 2rem 0 5.5rem 0;
+    }
+}
+
+/* Extra Small Screens: Below 375px */
+@media (max-width: 374px) {
+    .hero-title {
+        font-size: 1.65rem;
+    }
+    
+    .hero-description {
+        font-size: 0.88rem;
+    }
+    
+    .hero-card {
+        padding: 1.5rem 1rem;
+        max-width: 280px;
+    }
+    
+    .photo-ring {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .section-title {
+        font-size: 1.65rem;
+    }
+    
+    .about-image-wrapper {
+        max-width: 240px;
+        padding: 10px;
+    }
+    
+    .skill-logo-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .skill-logo-item h4 {
+        font-size: 0.7rem;
+    }
+    
+    .projects-title-outline {
+        font-size: 2rem;
+    }
+    
+    .parallax-text {
+        font-size: 3rem;
+    }
+    
+    .project-image-wrapper {
+        height: 220px;
+    }
+    
+    .projectsSwiper .swiper-button-prev,
+    .projectsSwiper .swiper-button-next {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .projectsSwiper .swiper-button-prev::after,
+    .projectsSwiper .swiper-button-next::after {
+        font-size: 11px;
+    }
+}
+
+/* Landscape Mobile Optimization */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 100px 0 50px 0;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+    }
+    
+    .photo-ring {
+        width: 120px;
+        height: 120px;
+    }
+    
+    section {
+        padding: 3rem 0;
+    }
+}
+
+
+
+
 
