@@ -503,7 +503,7 @@
     <script src="script.js"></script>
     
 
-    <!-- n8n -->
+    <!-- n8n submit form -->
    <script>
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
@@ -556,7 +556,695 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+        <!-- Syrix ai -->
+<!--
+  SYRIX AI CHAT WIDGET — Premium Edition
+  =========================================
+  Improvements over original:
+  · Animated bouncing typing dots (replaces "Typing..." text)
+  · Word-by-word typewriter effect on AI responses
+  · Floating CTA bubble with online indicator (fades after chat opens)
+  · Pulse/glow animation on toggle button + notification dot
+  · Smooth open/close animations (spring physics, no jank)
+  · Message slide-in animations per bubble
+  · Better bubble contrast: gradient for user, dark surface for bot
+  · Input focus ring with accent color + disabled state while waiting
+  · Enter to send, send button disabled during API call
+  · Close button inside header for mobile ergonomics
+  · Clean IIFE module pattern — no global variable leaks
+-->
 
+<style>
+  /* ── Design tokens ─────────────────────────────────────────── */
+  :root {
+    --syrix-bg:           #0a0a0f;
+    --syrix-surface:      #111118;
+    --syrix-border:       rgba(255,255,255,0.08);
+    --syrix-accent:       #7c6ef7;
+    --syrix-accent-dark:  #5b4fd4;
+    --syrix-text:         #f0f0f5;
+    --syrix-muted:        rgba(240,240,245,0.40);
+    --syrix-radius:       16px;
+    --syrix-shadow:
+      0 32px 80px rgba(0,0,0,0.55),
+      0 0 0 0.5px rgba(255,255,255,0.06);
+  }
 
+  /* ── Toggle button ─────────────────────────────────────────── */
+  #syrix-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--syrix-accent-dark), var(--syrix-accent));
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(124,110,247,0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 9999;
+    animation: syrix-pulse 2.8s ease-in-out infinite;
+  }
+
+  #syrix-toggle:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 36px rgba(124,110,247,0.55);
+    animation: none;
+  }
+
+  #syrix-toggle svg {
+    width: 22px;
+    height: 22px;
+    fill: #fff;
+    pointer-events: none;
+  }
+
+  /* Pulse glow ring — stops on hover so it doesn't fight the scale */
+  @keyframes syrix-pulse {
+    0%,100% { box-shadow: 0 8px 24px rgba(124,110,247,0.40), 0 0 0 0   rgba(124,110,247,0.30); }
+    50%      { box-shadow: 0 8px 24px rgba(124,110,247,0.40), 0 0 0 10px rgba(124,110,247,0.00); }
+  }
+
+  /* Notification dot — hidden once user opens chat */
+  #syrix-notif-dot {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 10px;
+    height: 10px;
+    background: #f87171;
+    border-radius: 50%;
+    border: 2px solid var(--syrix-accent-dark);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  /* ── Floating CTA bubble ───────────────────────────────────── */
+  #syrix-cta {
+    position: fixed;
+    bottom: 94px;
+    right: 24px;
+    background: #111118;
+    border: 0.5px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 9px 14px;
+    font-size: 13px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    color: #e8e8f2;
+    white-space: nowrap;
+    display: none;          /* shown after delay via JS */
+    align-items: center;
+    gap: 7px;
+    z-index: 9998;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    pointer-events: none;
+    animation: syrix-cta-in 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+  }
+
+  /* Green "online" dot inside CTA */
+  #syrix-cta::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    flex-shrink: 0;
+    animation: syrix-online 2s ease-in-out infinite;
+  }
+
+  /* Arrow pointing down toward toggle button */
+  #syrix-cta::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    right: 21px;
+    width: 10px;
+    height: 10px;
+    background: #111118;
+    border-right: 0.5px solid rgba(255,255,255,0.12);
+    border-bottom: 0.5px solid rgba(255,255,255,0.12);
+    transform: rotate(45deg);
+  }
+
+  @keyframes syrix-online {
+    0%,100% { opacity: 1; }
+    50%      { opacity: 0.35; }
+  }
+
+  @keyframes syrix-cta-in {
+    from { opacity: 0; transform: translateY(10px) scale(0.94); }
+    to   { opacity: 1; transform: translateY(0)    scale(1);    }
+  }
+
+  /* ── Main widget panel ─────────────────────────────────────── */
+  #syrix-widget {
+    position: fixed;
+    bottom: 90px;
+    right: 24px;
+    width: 340px;
+    height: 480px;
+    background: var(--syrix-bg);
+    border: 0.5px solid rgba(255,255,255,0.10);
+    border-radius: var(--syrix-radius);
+    box-shadow: var(--syrix-shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    z-index: 9998;
+    transform-origin: bottom right;
+  }
+
+  #syrix-widget.hidden { display: none; }
+
+  /* Spring open animation */
+  #syrix-widget.entering {
+    animation: syrix-open 0.35s cubic-bezier(0.34,1.56,0.64,1) both;
+  }
+
+  /* Quick close animation */
+  #syrix-widget.leaving {
+    animation: syrix-close 0.22s ease-in both;
+  }
+
+  @keyframes syrix-open {
+    from { opacity: 0; transform: scale(0.88) translateY(12px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0);     }
+  }
+
+  @keyframes syrix-close {
+    from { opacity: 1; transform: scale(1)   translateY(0);    }
+    to   { opacity: 0; transform: scale(0.9) translateY(8px);  }
+  }
+
+  /* ── Header ────────────────────────────────────────────────── */
+  .syrix-header {
+    padding: 14px 16px 13px;
+    background: #0d0d14;
+    border-bottom: 0.5px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+  }
+
+  .syrix-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--syrix-accent-dark), var(--syrix-accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .syrix-avatar svg { width: 16px; height: 16px; fill: #fff; }
+
+  .syrix-header-info { flex: 1; }
+
+  .syrix-header-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: #f0f0f5;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  /* "Online" status with animated green dot */
+  .syrix-header-status {
+    font-size: 11px;
+    color: #6ee7b7;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    line-height: 1;
+  }
+
+  .syrix-header-status::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #4ade80;
+  }
+
+  .syrix-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: rgba(255,255,255,0.30);
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+
+  .syrix-close-btn:hover {
+    color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .syrix-close-btn svg { width: 14px; height: 14px; }
+
+  /* ── Message area ──────────────────────────────────────────── */
+  #syrix-box {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px 14px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.10) transparent;
+  }
+
+  #syrix-box::-webkit-scrollbar       { width: 4px; }
+  #syrix-box::-webkit-scrollbar-track { background: transparent; }
+  #syrix-box::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.10); border-radius: 4px; }
+
+  /* Base bubble */
+  .syrix-msg {
+    max-width: 82%;
+    padding: 10px 13px;
+    border-radius: 14px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    word-break: break-word;
+    animation: syrix-msg-in 0.28s cubic-bezier(0.34,1.4,0.64,1) both;
+  }
+
+  @keyframes syrix-msg-in {
+    from { opacity: 0; transform: translateY(10px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0)    scale(1);    }
+  }
+
+  /* User bubble — accent gradient, right-aligned */
+  .syrix-msg.user {
+    background: linear-gradient(135deg, #3b2fa0, var(--syrix-accent-dark));
+    color: #f0efff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 4px 12px rgba(91,79,212,0.28);
+  }
+
+  /* Bot bubble — dark surface, left-aligned */
+  .syrix-msg.bot {
+    background: #16161f;
+    color: #e8e8f2;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    border: 0.5px solid rgba(255,255,255,0.07);
+  }
+
+  /* Animated typing indicator — three bouncing dots */
+  .syrix-typing {
+    align-self: flex-start;
+    background: #16161f;
+    border: 0.5px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+    border-bottom-left-radius: 4px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    animation: syrix-msg-in 0.28s cubic-bezier(0.34,1.4,0.64,1) both;
+  }
+
+  .syrix-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.32);
+    animation: syrix-bounce 1.2s ease-in-out infinite;
+  }
+
+  .syrix-dot:nth-child(2) { animation-delay: 0.18s; }
+  .syrix-dot:nth-child(3) { animation-delay: 0.36s; }
+
+  @keyframes syrix-bounce {
+    0%,60%,100% { transform: translateY(0);   opacity: 0.32; }
+    30%          { transform: translateY(-5px); opacity: 1;    }
+  }
+
+  /* Empty state greeting */
+  .syrix-welcome {
+    align-self: center;
+    text-align: center;
+    padding: 1.5rem 1rem 1rem;
+    color: rgba(255,255,255,0.32);
+    font-size: 12.5px;
+    line-height: 1.65;
+  }
+
+  .syrix-welcome-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(124,110,247,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+  }
+
+  .syrix-welcome-icon svg { width: 20px; height: 20px; fill: var(--syrix-accent); }
+
+  /* ── Input area ────────────────────────────────────────────── */
+  .syrix-input-area {
+    padding: 10px 12px 12px;
+    background: #0d0d14;
+    border-top: 0.5px solid rgba(255,255,255,0.07);
+    flex-shrink: 0;
+  }
+
+  .syrix-input-wrap {
+    display: flex;
+    align-items: center;
+    background: #1a1a25;
+    border: 0.5px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  /* Accent focus ring */
+  .syrix-input-wrap:focus-within {
+    border-color: rgba(124,110,247,0.55);
+    box-shadow: 0 0 0 3px rgba(124,110,247,0.10);
+  }
+
+  #syrix-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #e8e8f2;
+    font-size: 13.5px;
+    padding: 11px 12px;
+    font-family: inherit;
+    caret-color: var(--syrix-accent);
+  }
+
+  #syrix-input::placeholder { color: rgba(255,255,255,0.22); }
+  #syrix-input:disabled      { opacity: 0.5; }
+
+  /* Send button */
+  #syrix-send {
+    width: 34px;
+    height: 34px;
+    margin: 4px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--syrix-accent-dark), var(--syrix-accent));
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.15s ease, opacity 0.2s ease;
+  }
+
+  #syrix-send:hover   { transform: scale(1.08); }
+  #syrix-send:active  { transform: scale(0.93); }
+  #syrix-send:disabled { opacity: 0.30; cursor: not-allowed; transform: none; }
+  #syrix-send svg { width: 14px; height: 14px; fill: #fff; }
+
+  .syrix-hint {
+    text-align: center;
+    font-size: 11px;
+    color: rgba(255,255,255,0.16);
+    margin-top: 7px;
+    letter-spacing: 0.01em;
+  }
+</style>
+
+<!-- ── Floating CTA Bubble ──────────────────────────────────── -->
+<div id="syrix-cta">Ask me anything</div>
+
+<!-- ── Chat Widget ─────────────────────────────────────────── -->
+<div id="syrix-widget" class="hidden" role="dialog" aria-label="Syrix AI Assistant chat">
+  <!-- Header -->
+  <div class="syrix-header">
+    <div class="syrix-avatar" aria-hidden="true">
+      <svg viewBox="0 0 20 20"><path d="M10 2a3 3 0 100 6 3 3 0 000-6zM3 13a7 7 0 0114 0v1H3v-1z"/></svg>
+    </div>
+    <div class="syrix-header-info">
+      <div class="syrix-header-name">Syrix AI Assistant</div>
+      <div class="syrix-header-status">Online · Ready to help</div>
+    </div>
+    <button class="syrix-close-btn" id="syrix-close" aria-label="Close chat">
+      <svg viewBox="0 0 16 16" fill="currentColor">
+        <path d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Message area -->
+  <div id="syrix-box" aria-live="polite">
+    <!-- Welcome state shown before first message -->
+    <div class="syrix-welcome" id="syrix-welcome">
+      <div class="syrix-welcome-icon" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v7a2 2 0 01-2 2H6l-4 4V5z"/></svg>
+      </div>
+      Hi there! I'm Syrix. How can I help you today?
+    </div>
+  </div>
+
+  <!-- Input area -->
+  <div class="syrix-input-area">
+    <div class="syrix-input-wrap">
+      <input
+        id="syrix-input"
+        type="text"
+        placeholder="Type a message..."
+        autocomplete="off"
+        aria-label="Chat message"
+      />
+      <button id="syrix-send" aria-label="Send message">
+        <svg viewBox="0 0 16 16" fill="none">
+          <path d="M1.5 1.5l13 6.5-13 6.5V9.5l9-3-9-3V1.5z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+    <div class="syrix-hint">Press Enter to send</div>
+  </div>
+</div>
+
+<!-- ── Toggle Button ───────────────────────────────────────── -->
+<button id="syrix-toggle" aria-label="Open Syrix AI chat" aria-expanded="false">
+  <div id="syrix-notif-dot" aria-hidden="true"></div>
+  <!-- Chat icon (shown when closed) -->
+  <svg id="syrix-icon-chat" viewBox="0 0 20 20">
+    <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v7a2 2 0 01-2 2H6l-4 4V5z"/>
+  </svg>
+  <!-- X icon (shown when open) -->
+  <svg id="syrix-icon-close" viewBox="0 0 20 20" style="display:none;">
+    <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/>
+  </svg>
+</button>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── State ─────────────────────────────────────────────────── */
+  let isOpen     = false;
+  let isWaiting  = false;
+  let ctaHidden  = false;
+  let hasOpened  = false;
+  let userName   = '';
+  let userEmail  = '';
+
+  /* ── Elements ──────────────────────────────────────────────── */
+  const toggle     = document.getElementById('syrix-toggle');
+  const widget     = document.getElementById('syrix-widget');
+  const closeBtn   = document.getElementById('syrix-close');
+  const box        = document.getElementById('syrix-box');
+  const input      = document.getElementById('syrix-input');
+  const sendBtn    = document.getElementById('syrix-send');
+  const cta        = document.getElementById('syrix-cta');
+  const notifDot   = document.getElementById('syrix-notif-dot');
+  const iconChat   = document.getElementById('syrix-icon-chat');
+  const iconClose  = document.getElementById('syrix-icon-close');
+  const welcome    = document.getElementById('syrix-welcome');
+
+  /* ── CTA bubble: show after 3 s if chat not yet opened ─────── */
+  setTimeout(function () {
+    if (!hasOpened && !ctaHidden) {
+      cta.style.display = 'flex';
+    }
+  }, 3000);
+
+  function hideCTA() {
+    if (ctaHidden) return;
+    ctaHidden = true;
+    cta.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    cta.style.opacity = '0';
+    cta.style.transform = 'translateY(6px) scale(0.94)';
+    setTimeout(function () { cta.style.display = 'none'; }, 320);
+  }
+
+  /* ── Widget open / close ───────────────────────────────────── */
+  function openWidget() {
+    if (isOpen) return;
+    isOpen   = true;
+    hasOpened = true;
+    widget.classList.remove('hidden', 'leaving');
+    widget.classList.add('entering');
+    toggle.setAttribute('aria-expanded', 'true');
+    iconChat.style.display  = 'none';
+    iconClose.style.display = 'block';
+    notifDot.style.opacity  = '0';
+    hideCTA();
+    setTimeout(function () {
+      widget.classList.remove('entering');
+      input.focus();
+    }, 380);
+  }
+
+  function closeWidget() {
+    if (!isOpen) return;
+    isOpen = false;
+    widget.classList.add('leaving');
+    toggle.setAttribute('aria-expanded', 'false');
+    iconChat.style.display  = 'block';
+    iconClose.style.display = 'none';
+    setTimeout(function () {
+      widget.classList.add('hidden');
+      widget.classList.remove('leaving');
+    }, 240);
+  }
+
+  toggle.addEventListener('click', function () {
+    isOpen ? closeWidget() : openWidget();
+  });
+
+  closeBtn.addEventListener('click', closeWidget);
+
+  /* ── Message helpers ───────────────────────────────────────── */
+  function removeWelcome() {
+    if (welcome && welcome.parentNode) welcome.remove();
+  }
+
+  function addMessage(text, role) {
+    removeWelcome();
+    const el = document.createElement('div');
+    el.className = 'syrix-msg ' + role;
+    el.textContent = text;
+    box.appendChild(el);
+    scrollSmooth();
+    return el;
+  }
+
+  /* Animated bouncing dots while waiting for API */
+  function showTypingIndicator() {
+    const el = document.createElement('div');
+    el.className = 'syrix-typing';
+    el.id = 'syrix-typing-indicator';
+    el.setAttribute('aria-label', 'Syrix is typing');
+    el.innerHTML =
+      '<div class="syrix-dot"></div>' +
+      '<div class="syrix-dot"></div>' +
+      '<div class="syrix-dot"></div>';
+    box.appendChild(el);
+    scrollSmooth();
+    return el;
+  }
+
+  /* Word-by-word typewriter — feels like the AI is "thinking" */
+  function typewriterEffect(el, text) {
+    el.textContent = '';
+    const words = text.split(' ');
+    let i = 0;
+
+    const interval = setInterval(function () {
+      if (i < words.length) {
+        el.textContent += (i > 0 ? ' ' : '') + words[i];
+        i++;
+        scrollSmooth();
+      } else {
+        clearInterval(interval);
+      }
+    }, 36); // ~28 words/sec feels natural
+  }
+
+  function scrollSmooth() {
+    box.scrollTo({ top: box.scrollHeight, behavior: 'smooth' });
+  }
+
+  /* Disable input + send button while waiting */
+  function setWaiting(state) {
+    isWaiting         = state;
+    sendBtn.disabled  = state;
+    input.disabled    = state;
+  }
+
+  /* ── Simple credential sniffing (keep from original) ────────── */
+  function sniffCredentials(message) {
+    if (!userName && message.length < 25 && !message.includes('@')) {
+      userName = message;
+    }
+    if (!userEmail && message.includes('@')) {
+      userEmail = message;
+    }
+  }
+
+  /* ── Main send function ────────────────────────────────────── */
+  async function sendMessage() {
+    const text = input.value.trim();
+    if (!text || isWaiting) return;
+
+    input.value = '';
+    addMessage(text, 'user');
+    setWaiting(true);
+    sniffCredentials(text);
+
+    const typing = showTypingIndicator();
+
+    try {
+      const res = await fetch('https://n8n-kulot.onrender.com/webhook/chatbot', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({
+          name:    userName,
+          email:   userEmail,
+          message: text,
+        }),
+      });
+
+      const reply = await res.text();
+      typing.remove();
+
+      const botEl = addMessage('', 'bot');
+      typewriterEffect(botEl, reply || 'Sorry, I couldn\'t get a response right now.');
+
+    } catch (err) {
+      typing.remove();
+      addMessage('Connection error — please try again.', 'bot');
+    }
+
+    setWaiting(false);
+    input.focus();
+  }
+
+  /* ── Event listeners ───────────────────────────────────────── */
+  sendBtn.addEventListener('click', sendMessage);
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+})();
+</script>
 </body>
 </html>
