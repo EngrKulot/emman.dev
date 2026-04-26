@@ -1187,13 +1187,17 @@ document.addEventListener('DOMContentLoaded', function() {
     input.disabled    = state;
   }
 
-  /* ── Simple credential sniffing (keep from original) ────────── */
+  /* ── Credential extraction via regex ────────────────────────── */
   function sniffCredentials(message) {
-    if (!userName && message.length < 25 && !message.includes('@')) {
-      userName = message;
+    // Extract name from phrases like "im John", "i am Jane", "ako si Maria"
+    if (!userName) {
+      const nameMatch = message.match(/(?:im|i am|ako si)\s+([a-zA-Z]+)/i);
+      if (nameMatch) userName = nameMatch[1];
     }
-    if (!userEmail && message.includes('@')) {
-      userEmail = message;
+    // Extract a valid email address anywhere in the message
+    if (!userEmail) {
+      const emailMatch = message.match(/[^\s@]+@[^\s@]+\.[^\s@]+/);
+      if (emailMatch) userEmail = emailMatch[0];
     }
   }
 
