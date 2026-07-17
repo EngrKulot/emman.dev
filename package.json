@@ -1,0 +1,15 @@
+{
+  "name": "emman---portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "html-minifier-terser src/index.html -o docs/index.html --collapse-whitespace --remove-comments --remove-redundant-attributes --remove-script-type-attributes --remove-style-link-type-attributes --remove-attribute-quotes --remove-empty-attributes --minify-css true --minify-js true"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0"
+  }
+}
