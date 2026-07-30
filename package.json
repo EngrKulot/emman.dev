@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "html-minifier-terser src/index.html -o docs/index.html --collapse-whitespace --remove-comments --remove-redundant-attributes --remove-script-type-attributes --remove-style-link-type-attributes --remove-attribute-quotes --remove-empty-attributes --minify-css true --minify-js true && html-minifier-terser src/booking.html -o docs/booking.html --collapse-whitespace --remove-comments --remove-redundant-attributes --remove-script-type-attributes --remove-style-link-type-attributes --remove-attribute-quotes --remove-empty-attributes --minify-css true --minify-js true"
+    "build": "html-minifier-terser src/index.html -o docs/index.html --collapse-whitespace --remove-comments --remove-redundant-attributes --remove-script-type-attributes --remove-style-link-type-attributes --remove-attribute-quotes --remove-empty-attributes --minify-css true --minify-js true && html-minifier-terser src/book-a-call/index.html -o docs/book-a-call/index.html --collapse-whitespace --remove-comments --remove-redundant-attributes --remove-script-type-attributes --remove-style-link-type-attributes --remove-attribute-quotes --remove-empty-attributes --minify-css true --minify-js true"
   },
   "keywords": [],
   "author": "",
