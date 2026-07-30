@@ -189,6 +189,32 @@
       transform-origin: left;
     }
 
+    .nav-links .nav-booking {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 16px;
+      border: 1px solid rgba(255, 115, 0, 0.72);
+      border-radius: 3px;
+      color: var(--orange);
+      background: rgba(255, 115, 0, 0.065);
+      box-shadow: 0 0 28px rgba(255, 115, 0, 0.08);
+      transition: color 220ms var(--ease), border-color 220ms var(--ease), background 220ms var(--ease), box-shadow 220ms var(--ease), transform 220ms var(--ease);
+    }
+
+    .nav-links .nav-booking::after {
+      display: none;
+    }
+
+    .nav-links .nav-booking:hover,
+    .nav-links .nav-booking[aria-current="page"] {
+      transform: translateY(-1px);
+      border-color: rgba(255, 115, 0, 0.96);
+      background: rgba(255, 115, 0, 0.12);
+      color: #ff9a36;
+      box-shadow: 0 0 34px rgba(255, 115, 0, 0.16);
+    }
+
     .nav-toggle {
       display: none;
       width: 34px;
@@ -393,6 +419,20 @@
       flex-wrap: wrap;
       gap: 18px;
       margin-top: 48px;
+    }
+
+    .section-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .section-cta-row .blueprint-btn {
+      min-width: 190px;
+      min-height: 52px;
+      padding-inline: 20px;
+      font-size: 0.74rem;
     }
 
     .blueprint-btn {
@@ -3891,6 +3931,10 @@
       line-height: 1.76;
     }
 
+    .intake-booking-link {
+      width: fit-content;
+    }
+
     .intake-divider {
       position: relative;
       width: min(360px, 78%);
@@ -5745,6 +5789,20 @@
     }
 
     @media (max-width: 1080px) {
+      .nav-links {
+        gap: 18px;
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+      }
+
+      .brand-copy strong {
+        font-size: 0.8rem;
+      }
+
+      .brand-copy small {
+        font-size: 0.62rem;
+      }
+
       .hero {
         min-height: auto;
         padding: 128px 0 88px;
@@ -6890,6 +6948,7 @@
         <a href="#behind-blueprint">About</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
+        <a class="nav-booking" href="booking.html">Book a Call</a>
       </div>
     </nav>
   </header>
@@ -6918,7 +6977,7 @@
 
           <div class="action-row" aria-label="Hero actions">
             <a class="blueprint-btn primary" href="#projects">View Blueprint <span class="arrow" aria-hidden="true">-></span></a>
-            <a class="blueprint-btn" href="#contact">Start a Project <span class="arrow" aria-hidden="true">-></span></a>
+            <a class="blueprint-btn" href="booking.html">Book a Call <span class="arrow" aria-hidden="true">-></span></a>
           </div>
         </div>
 
@@ -7049,6 +7108,9 @@
             <h2 id="credibility-title">Every Layer Has A Purpose.</h2>
           </div>
           <p class="credibility-note">Four connected disciplines that turn a modern website into a working digital growth engine.</p>
+          <div class="section-cta-row" aria-label="Capability actions">
+            <a class="blueprint-btn" href="booking.html">Let's Talk <span class="arrow" aria-hidden="true">-></span></a>
+          </div>
         </div>
 
         <div class="capability-rail" aria-label="Core capabilities">
@@ -7589,6 +7651,9 @@
               <p class="validation-kicker">06 / Field Validation</p>
               <h2 id="validation-title">Trusted by Teams Building <span>Real Systems.</span></h2>
               <p class="validation-copy">Client feedback gathered from websites, automations, CRM systems, workflows and technical projects delivered with reliability, clarity and care.</p>
+              <div class="section-cta-row" aria-label="Validation actions">
+                <a class="blueprint-btn" href="booking.html">Book a Call <span class="arrow" aria-hidden="true">-></span></a>
+              </div>
             </div>
 
             <div class="validation-divider" aria-hidden="true"></div>
@@ -7685,7 +7750,7 @@
 
             <article class="validation-record">
               <div class="record-head">
-                <div class="record-avatar" aria-hidden="true"><img src="https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/651761819_2393281347801613_8353256502226799942_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx960x958&amp;ctp=s960x958&amp;_nc_cat=109&amp;_nc_map=urlgen_bucketless&amp;ccb=1-7&amp;_nc_sid=a5f93a&amp;_nc_eui2=AeE97ucfra4n3yTcP0SAUbSXAgMslzi2Gj8CAyyXOLYaPzIu8keNAcRnWhKLcli95FuBjgQRr-IaQPJJPkoPZaSr&amp;_nc_ohc=35EsAKD7_FEQ7kNvwFudC7a&amp;_nc_oc=Adov8a8UUj5O4uzJl83tGnABhoOYcvNuHAU6RXBF1jKo4QRKr5stNn79rlBfP1HTfP4&amp;_nc_zt=23&amp;_nc_ht=scontent.fmnl17-2.fna&amp;_nc_gid=QjE25Ycrr6o8JEap3CV_tA&amp;_nc_ss=7b2a8&amp;oh=00_AQA1_xZl_H2ruxMt62DxzDGayl0D0cOLSsyTulnA5ADUgg&amp;oe=6A5EC208" alt=""></div>
+                <div class="record-avatar" aria-hidden="true"><img src="https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-1/651761819_2393281347801613_8353256502226799942_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx960x958&amp;ctp=s200x200&amp;_nc_cat=109&amp;_nc_map=urlgen_bucketless&amp;ccb=1-7&amp;_nc_sid=1d2534&amp;_nc_eui2=AeE97ucfra4n3yTcP0SAUbSXAgMslzi2Gj8CAyyXOLYaPzIu8keNAcRnWhKLcli95FuBjgQRr-IaQPJJPkoPZaSr&amp;_nc_ohc=QSut6w9t7_YQ7kNvwFgjVZN&amp;_nc_oc=AdrX7VDo5Qtwo3uUOubOajyaJ_lxoDlklFU9cT6jWq6EDeIfixEsRPi8FpZx8-z-M5g&amp;_nc_zt=24&amp;_nc_ht=scontent.fmnl17-2.fna&amp;_nc_gid=zkJzcgK2ZvnyHAITmjHfPw&amp;_nc_ss=7b2a8&amp;oh=00_AQGhAO3cak3AYgpPorhZxsukpHxcRE-8q7qQ-q8zwsJKnA&amp;oe=6A70CB46" alt=""></div>
                 <div class="record-content">
                   <span class="record-id">REF-005</span>
                   <h3>Prince Christian Tolentino</h3>
@@ -7719,6 +7784,7 @@
               <h2 id="intake-title">Let's Build Your Next <span>System.</span></h2>
               <p class="intake-copy">Have a project, workflow, website, or automation in mind?</p>
               <p class="intake-copy">I'd love to help you build it with clarity, structure, and systems that scale.</p>
+              <a class="blueprint-btn primary intake-booking-link" href="booking.html">Let's Talk <span class="arrow" aria-hidden="true">-></span></a>
             </div>
 
             <div class="intake-divider" aria-hidden="true"></div>
@@ -7903,6 +7969,7 @@
               <a href="#behind-blueprint">About</a>
               <a href="#projects">Projects</a>
               <a href="#contact">Contact</a>
+              <a href="booking.html">Book a Call</a>
             </nav>
           </div>
 
