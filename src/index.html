@@ -1116,7 +1116,7 @@
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      padding: 30px 0 20px;
+      padding: 30px 0 58px;
       border-top: 1px solid rgba(122, 178, 205, 0.14);
       border-bottom: 1px solid rgba(122, 178, 205, 0.16);
       background:
@@ -1159,6 +1159,7 @@
       grid-template-columns: minmax(280px, 0.34fr) minmax(420px, 0.42fr) minmax(220px, 0.24fr);
       gap: clamp(54px, 6vw, 92px);
       align-items: center;
+      padding: 16px 0 0 22px;
     }
 
     .production-shell::before {
@@ -1264,28 +1265,6 @@
       text-transform: uppercase;
     }
 
-    .production-status::before,
-    .production-status::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      width: 18px;
-      height: 18px;
-      border-color: rgba(122, 178, 205, 0.5);
-    }
-
-    .production-status::before {
-      top: 0;
-      border-top: 1px solid;
-      border-right: 1px solid;
-    }
-
-    .production-status::after {
-      bottom: 0;
-      border-right: 1px solid;
-      border-bottom: 1px solid;
-    }
-
     .production-status span {
       color: rgba(122, 178, 205, 0.84);
     }
@@ -1301,7 +1280,7 @@
       isolation: isolate;
       overflow: hidden;
       margin-top: -1px;
-      padding: 96px 0 86px;
+      padding: 64px 0 86px;
       border-top: 0;
       border-bottom: 1px solid rgba(122, 178, 205, 0.16);
       background:
@@ -1523,7 +1502,7 @@
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      padding: clamp(110px, 10vw, 144px) 0 clamp(120px, 10vw, 152px);
+      padding: clamp(76px, 7vw, 104px) 0 clamp(72px, 6vw, 96px);
       border-bottom: 1px solid rgba(122, 178, 205, 0.14);
       background:
         radial-gradient(circle at 18% 18%, rgba(255, 115, 0, 0.08), transparent 28%),
@@ -1891,10 +1870,11 @@
       left: 30px;
       bottom: 58px;
       max-width: 210px;
-      color: rgba(122, 178, 205, 0.68);
+      color: rgba(166, 216, 255, 0.95);
       font-family: "Caveat", "Segoe Print", cursive;
       font-size: 1.25rem;
       line-height: 1.05;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
       transform: rotate(-4deg);
     }
 
@@ -2207,8 +2187,8 @@
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      padding: clamp(110px, 10vw, 148px) 0;
-      border-bottom: 1px solid rgba(122, 178, 205, 0.14);
+      padding: clamp(82px, 7vw, 112px) 0 clamp(82px, 7vw, 112px);
+      border-bottom: 0;
       background:
         radial-gradient(circle at 82% 8%, rgba(255, 115, 0, 0.07), transparent 28%),
         linear-gradient(180deg, #071014 0%, #08151a 48%, #061015 100%);
@@ -2611,7 +2591,7 @@
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      padding: clamp(110px, 10vw, 150px) 0;
+      padding: clamp(82px, 7vw, 112px) 0 clamp(110px, 10vw, 150px);
       border-bottom: 1px solid rgba(122, 178, 205, 0.14);
       background:
         radial-gradient(circle at 18% 18%, rgba(255, 115, 0, 0.06), transparent 30%),
@@ -2644,38 +2624,14 @@
 
     .process-shell {
       position: relative;
-      width: min(calc(100% - 80px), 1440px);
+      width: min(calc(100% - clamp(80px, 8vw, 128px)), 1440px);
       margin: 0 auto;
-    }
-
-    .process-shell::before,
-    .process-shell::after {
-      content: "";
-      position: absolute;
-      width: 28px;
-      height: 28px;
-      border-color: rgba(122, 178, 205, 0.42);
-      pointer-events: none;
-    }
-
-    .process-shell::before {
-      top: -34px;
-      left: -18px;
-      border-top: 1px solid;
-      border-left: 1px solid;
-    }
-
-    .process-shell::after {
-      right: -18px;
-      bottom: -34px;
-      border-right: 1px solid;
-      border-bottom: 1px solid;
     }
 
     .process-layout {
       display: grid;
-      grid-template-columns: minmax(360px, 0.42fr) minmax(560px, 0.58fr);
-      gap: clamp(58px, 6vw, 96px);
+      grid-template-columns: minmax(280px, 0.38fr) minmax(0, 0.62fr);
+      gap: clamp(44px, 4.8vw, 88px);
       align-items: start;
     }
 
@@ -2683,15 +2639,6 @@
       position: absolute;
       pointer-events: none;
       opacity: 0.72;
-    }
-
-    .process-ruler--top {
-      top: -18px;
-      right: 64px;
-      width: min(420px, 34vw);
-      height: 26px;
-      border-top: 1px solid rgba(122, 178, 205, 0.36);
-      background: repeating-linear-gradient(90deg, rgba(122, 178, 205, 0.42) 0 1px, transparent 1px 18px);
     }
 
     .process-ruler--bottom {
@@ -2746,7 +2693,7 @@
       margin: 0 0 28px;
       color: var(--paper);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3.4rem, 6.4vw, 6.4rem);
+      font-size: clamp(2.75rem, 4.9vw, 4.85rem);
       line-height: 0.98;
       letter-spacing: 0;
       text-shadow: 0 24px 50px rgba(0, 0, 0, 0.34);
@@ -2798,7 +2745,9 @@
       max-width: 460px;
       margin: 0;
       min-height: 250px;
-      padding: clamp(38px, 4vw, 56px);
+      display: grid;
+      align-content: center;
+      padding: clamp(38px, 4vw, 56px) clamp(38px, 4vw, 56px) clamp(38px, 4vw, 56px) clamp(64px, 5vw, 82px);
       box-shadow: inset 0 0 0 1px rgba(122, 178, 205, 0.04);
     }
 
@@ -2853,6 +2802,14 @@
       text-transform: uppercase;
     }
 
+    .process-philosophy-label {
+      position: relative;
+      z-index: 2;
+      color: rgba(166, 216, 255, 0.98);
+      opacity: 1;
+      text-shadow: 0 0 14px rgba(122, 178, 205, 0.18);
+    }
+
     .process-philosophy p {
       position: relative;
       margin: 0;
@@ -2865,7 +2822,7 @@
     .process-philosophy p::before {
       content: '"';
       position: absolute;
-      left: -4px;
+      left: -28px;
       top: -34px;
       color: var(--orange);
       font-size: 3.2rem;
@@ -2976,7 +2933,10 @@
 
     .workflow-board {
       position: relative;
-      padding: 44px 54px 50px 84px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      padding: clamp(34px, 3.2vw, 44px) clamp(34px, 3vw, 54px) clamp(68px, 5vw, 76px) clamp(58px, 5vw, 84px);
       border: 1px solid rgba(122, 178, 205, 0.2);
       background:
         linear-gradient(rgba(122, 178, 205, 0.025) 1px, transparent 1px),
@@ -2988,7 +2948,7 @@
     .workflow-board::before {
       content: "";
       position: absolute;
-      left: 50px;
+      left: clamp(32px, 4vw, 50px);
       top: 116px;
       bottom: 84px;
       width: 1px;
@@ -3094,17 +3054,23 @@
 
     .workflow-steps {
       display: grid;
-      gap: 28px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      gap: clamp(18px, 2.3vw, 28px);
     }
 
     .workflow-step {
       position: relative;
       display: grid;
-      grid-template-columns: 76px minmax(180px, 0.9fr) minmax(250px, 1.25fr) 68px;
-      gap: clamp(18px, 2.4vw, 28px);
+      grid-template-columns: auto minmax(120px, 0.8fr) minmax(0, 1.4fr);
+      gap: clamp(12px, 1.8vw, 24px);
       align-items: center;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
       min-height: 92px;
-      padding: 18px 20px 18px 28px;
+      padding: 18px clamp(16px, 2vw, 20px) 18px clamp(20px, 2.2vw, 28px);
       border: 1px solid rgba(122, 178, 205, 0.22);
       background:
         linear-gradient(90deg, rgba(255, 115, 0, 0.035), transparent 28%),
@@ -3113,7 +3079,7 @@
     }
 
     .workflow-step:hover {
-      transform: translate3d(6px, -2px, 0);
+      transform: translate3d(0, -2px, 0);
       border-color: rgba(255, 115, 0, 0.42);
       box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22), 0 0 38px rgba(255, 115, 0, 0.08);
       background:
@@ -3176,77 +3142,22 @@
 
     .workflow-title {
       margin: 0;
+      min-width: 0;
       color: var(--paper);
       font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(1.18rem, 1.45vw, 1.58rem);
       line-height: 1.1;
+      overflow-wrap: anywhere;
       transition: color 240ms var(--ease);
     }
 
     .workflow-step p {
       margin: 0;
+      min-width: 0;
       color: rgba(242, 238, 230, 0.66);
       font-size: 0.86rem;
       line-height: 1.55;
-    }
-
-    .workflow-icon {
-      position: relative;
-      display: grid;
-      place-items: center;
-      justify-self: end;
-      width: 62px;
-      height: 62px;
-      border: 1px solid rgba(122, 178, 205, 0.2);
-      color: rgba(242, 238, 230, 0.8);
-      background: rgba(5, 14, 18, 0.42);
-      transition: color 260ms var(--ease), border-color 260ms var(--ease), box-shadow 260ms var(--ease);
-    }
-
-    .workflow-icon::before,
-    .workflow-icon::after {
-      content: "";
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      border-color: rgba(242, 238, 230, 0.62);
-      transition: border-color 260ms var(--ease), transform 260ms var(--ease);
-    }
-
-    .workflow-icon::before {
-      top: -4px;
-      left: -4px;
-      border-top: 1px solid;
-      border-left: 1px solid;
-    }
-
-    .workflow-icon::after {
-      right: -4px;
-      bottom: -4px;
-      border-right: 1px solid;
-      border-bottom: 1px solid;
-    }
-
-    .workflow-icon svg {
-      width: 28px;
-      height: 28px;
-      stroke: currentColor;
-      stroke-width: 1.6;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .workflow-step:hover .workflow-icon {
-      color: var(--orange);
-      border-color: rgba(255, 115, 0, 0.46);
-      box-shadow: 0 0 30px rgba(255, 115, 0, 0.08);
-    }
-
-    .workflow-step:hover .workflow-icon::before,
-    .workflow-step:hover .workflow-icon::after {
-      border-color: rgba(255, 115, 0, 0.9);
-      transform: scale(1.18);
+      overflow-wrap: anywhere;
     }
 
     .validation-section {
@@ -3312,17 +3223,6 @@
       bottom: -32px;
       border-right: 1px solid;
       border-bottom: 1px solid;
-    }
-
-    .validation-ruler {
-      position: absolute;
-      top: -8px;
-      right: 64px;
-      width: min(420px, 34vw);
-      height: 24px;
-      border-top: 1px solid rgba(122, 178, 205, 0.32);
-      background: repeating-linear-gradient(90deg, rgba(122, 178, 205, 0.36) 0 1px, transparent 1px 18px);
-      pointer-events: none;
     }
 
     .validation-coordinate {
@@ -3923,7 +3823,7 @@
       margin: 0 0 26px;
       color: var(--paper);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3.3rem, 5.8vw, 6rem);
+      font-size: clamp(2.75rem, 4.9vw, 4.9rem);
       line-height: 0.98;
       letter-spacing: 0;
     }
@@ -5323,6 +5223,71 @@
       }
     }
 
+    @media (max-width: 1440px) {
+      .process-section {
+        padding-top: clamp(76px, 6vw, 96px);
+      }
+
+      .process-section::after {
+        inset: 28px clamp(24px, 3vw, 42px);
+      }
+
+      .process-shell {
+        width: min(calc(100% - clamp(72px, 7vw, 112px)), 1240px);
+      }
+
+      .process-layout {
+        grid-template-columns: minmax(260px, 0.36fr) minmax(0, 0.64fr);
+        gap: clamp(36px, 4vw, 64px);
+      }
+
+      .process-intro h2 {
+        font-size: clamp(2.65rem, 4.55vw, 4.45rem);
+      }
+
+      .workflow-board {
+        padding: clamp(32px, 3vw, 40px) clamp(36px, 3vw, 44px) clamp(66px, 5vw, 74px) clamp(56px, 4.8vw, 70px);
+      }
+
+      .workflow-board::before {
+        left: clamp(28px, 3.4vw, 44px);
+        top: 104px;
+      }
+
+      .workflow-measure {
+        right: 30px;
+      }
+
+      .workflow-measure span {
+        right: -24px;
+      }
+
+      .workflow-step {
+        grid-template-columns: auto minmax(120px, 0.75fr) minmax(0, 1.45fr);
+      }
+    }
+
+    @media (max-width: 1180px) {
+      .process-shell {
+        width: min(calc(100% - 56px), 960px);
+      }
+
+      .process-layout {
+        grid-template-columns: 1fr;
+        gap: 58px;
+      }
+
+      .process-intro {
+        position: relative;
+        top: auto;
+        max-width: 760px;
+      }
+
+      .process-intro h2 {
+        max-width: 12ch;
+      }
+    }
+
     .syrix-cta {
       position: fixed;
       right: 24px;
@@ -5897,6 +5862,7 @@
         width: min(calc(100% - 56px), 920px);
         grid-template-columns: 1fr;
         gap: 26px;
+        padding: 0;
       }
 
       .production-grid {
@@ -5978,7 +5944,7 @@
       }
 
       .workflow-board {
-        padding: 38px 44px 48px 72px;
+        padding: 38px clamp(28px, 5vw, 44px) 64px clamp(56px, 7vw, 72px);
       }
 
       .validation-shell {
@@ -6079,12 +6045,17 @@
     @media (max-width: 760px) {
       .site-header {
         position: fixed;
+        z-index: 120;
+        isolation: isolate;
+        overflow: visible;
       }
 
       .nav-shell {
+        z-index: 1;
         width: calc(100% - 28px);
         min-height: 70px;
         gap: 14px;
+        overflow: visible;
       }
 
       .brand-copy {
@@ -6100,16 +6071,24 @@
         top: calc(100% + 10px);
         right: 0;
         display: grid;
-        width: min(260px, calc(100vw - 28px));
+        width: min(260px, calc(100vw - 44px));
         gap: 0;
-        padding: 10px;
+        height: auto;
+        min-height: max-content;
+        max-height: none;
+        align-content: start;
+        z-index: 4;
+        isolation: isolate;
+        overflow: visible;
+        padding: 10px 14px 30px;
         border: 1px solid rgba(122, 178, 205, 0.24);
         background:
           linear-gradient(rgba(122, 178, 205, 0.035) 1px, transparent 1px),
           linear-gradient(90deg, rgba(122, 178, 205, 0.035) 1px, transparent 1px),
-          rgba(3, 10, 14, 0.96);
+          rgba(3, 10, 14, 0.995);
         background-size: 18px 18px;
-        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.38), inset 0 0 0 1px rgba(255, 115, 0, 0.035);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 24px 68px rgba(0, 0, 0, 0.54), inset 0 0 0 1px rgba(255, 115, 0, 0.035);
         opacity: 0;
         visibility: hidden;
         transform: translate3d(0, -8px, 0);
@@ -6125,6 +6104,8 @@
       }
 
       .nav-links a {
+        position: relative;
+        z-index: 1;
         padding: 14px 12px;
         border-bottom: 1px solid rgba(122, 178, 205, 0.12);
         font-size: 0.72rem;
@@ -6135,6 +6116,14 @@
         border-bottom: 0;
       }
 
+      .nav-links a.nav-booking {
+        border-bottom: 1px solid rgba(255, 115, 0, 0.72);
+        justify-content: center;
+        margin-top: 10px;
+        width: 100%;
+        max-width: 100%;
+      }
+
       .maker-mark {
         width: 46px;
         height: 46px;
@@ -6143,7 +6132,7 @@
 
       .hero {
         min-height: auto;
-        padding: 118px 0 72px;
+        padding: 96px 0 72px;
       }
 
       .blueprint-frame,
@@ -6302,7 +6291,7 @@
       }
 
       .credibility-strip {
-        padding: 72px 0 58px;
+        padding: 48px 0 58px;
       }
 
       .credibility-shell {
@@ -6324,12 +6313,13 @@
       }
 
       .production-strip {
-        padding: 28px 0 34px;
+        padding: 28px 0 58px;
       }
 
       .production-shell {
         width: min(calc(100% - 48px), 520px);
         min-height: auto;
+        padding-left: 16px;
       }
 
       .production-grid {
@@ -6353,7 +6343,7 @@
       }
 
       .builder-section {
-        padding: 94px 0 104px;
+        padding: 64px 0 62px;
       }
 
       .builder-shell {
@@ -6361,7 +6351,7 @@
       }
 
       .projects-section {
-        padding: 92px 0 96px;
+        padding: 72px 0 72px;
       }
 
       .projects-shell {
@@ -6369,7 +6359,7 @@
       }
 
       .process-section {
-        padding: 92px 0 104px;
+        padding: 72px 0 104px;
       }
 
       .process-section::after {
@@ -6382,7 +6372,6 @@
 
       .process-ruler,
       .process-coordinate,
-      .validation-ruler,
       .validation-coordinate {
         display: none;
       }
@@ -6559,7 +6548,7 @@
       }
 
       .intake-intro h2 {
-        font-size: clamp(2.75rem, 13vw, 4.3rem);
+        font-size: clamp(2.25rem, 10vw, 3.35rem);
         margin-bottom: 22px;
       }
 
@@ -6731,7 +6720,7 @@
       }
 
       .process-intro h2 {
-        font-size: clamp(2.65rem, 13vw, 4.2rem);
+        font-size: clamp(2.2rem, 10vw, 3.15rem);
         margin-bottom: 22px;
       }
 
@@ -6747,7 +6736,7 @@
 
       .process-philosophy {
         min-height: 220px;
-        padding: 34px 26px;
+        padding: 34px 24px 34px 42px;
       }
 
       .process-philosophy p {
@@ -6755,7 +6744,7 @@
       }
 
       .workflow-board {
-        padding: 28px 16px 28px 34px;
+        padding: 28px 16px 34px 34px;
       }
 
       .workflow-board::before {
@@ -6797,7 +6786,7 @@
       }
 
       .workflow-step {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: auto minmax(0, 1fr);
         gap: 8px 16px;
         min-height: auto;
         padding: 18px;
@@ -6807,20 +6796,8 @@
         grid-column: 1 / -1;
       }
 
-      .workflow-icon {
-        grid-column: 2;
-        grid-row: 1 / span 2;
-        width: 46px;
-        height: 46px;
-      }
-
-      .workflow-icon svg {
-        width: 22px;
-        height: 22px;
-      }
-
       .workflow-step:hover {
-        transform: translate3d(3px, -2px, 0);
+        transform: translate3d(0, -2px, 0);
       }
 
       .workflow-node {
@@ -7528,7 +7505,6 @@
 
     <section id="process" class="process-section" aria-labelledby="process-title">
       <div class="process-shell">
-        <span class="process-ruler process-ruler--top" aria-hidden="true"></span>
         <span class="process-ruler process-ruler--bottom" aria-hidden="true"></span>
         <span class="process-coordinate process-coordinate--top" aria-hidden="true">System Blueprint v2.0</span>
         <span class="process-coordinate process-coordinate--bottom" aria-hidden="true">Built with intent. Engineered for impact.</span>
@@ -7577,7 +7553,6 @@
                 <span class="workflow-number">01</span>
                 <h3 class="workflow-title">Discovery</h3>
                 <p>Understand business goals, users, and opportunities before building.</p>
-                <span class="workflow-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg></span>
               </article>
 
               <article class="workflow-step">
@@ -7586,7 +7561,6 @@
                 <span class="workflow-number">02</span>
                 <h3 class="workflow-title">Strategy</h3>
                 <p>Define the roadmap, structure, and system architecture for success.</p>
-                <span class="workflow-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 3v18M3 12h18"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
               </article>
 
               <article class="workflow-step">
@@ -7595,7 +7569,6 @@
                 <span class="workflow-number">03</span>
                 <h3 class="workflow-title">Design</h3>
                 <p>Create intuitive experiences and visual systems that communicate clearly.</p>
-                <span class="workflow-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 20 4-1 10-10-3-3L5 16l-1 4Z"></path><path d="m13.5 7.5 3 3"></path><path d="M15 4l5 5"></path></svg></span>
               </article>
 
               <article class="workflow-step">
@@ -7604,7 +7577,6 @@
                 <span class="workflow-number">04</span>
                 <h3 class="workflow-title">Development</h3>
                 <p>Build clean, scalable, and high-performance websites and systems.</p>
-                <span class="workflow-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5"></path><path d="m16 7 5 5-5 5"></path><path d="m14 4-4 16"></path></svg></span>
               </article>
 
               <article class="workflow-step">
@@ -7613,7 +7585,6 @@
                 <span class="workflow-number">05</span>
                 <h3 class="workflow-title">Automation</h3>
                 <p>Integrate smart automations to streamline workflows and save time.</p>
-                <span class="workflow-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path><path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"></path></svg></span>
               </article>
 
               <article class="workflow-step">
@@ -7622,7 +7593,6 @@
                 <span class="workflow-number">06</span>
                 <h3 class="workflow-title">Testing</h3>
                 <p>Test across devices, browsers, and scenarios to ensure reliability.</p>
-                <span class="workflow-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7V3Z"></path><path d="M15 3v5h4"></path><path d="m9 13 1.5 1.5L14 11"></path><path d="M9 18h6"></path></svg></span>
               </article>
 
               <article class="workflow-step">
@@ -7631,7 +7601,6 @@
                 <span class="workflow-number">07</span>
                 <h3 class="workflow-title">Launch</h3>
                 <p>Deploy the system with confidence and ensure smooth implementation.</p>
-                <span class="workflow-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 14 9 21l-2-4-4-2 7-3"></path><path d="M14 12c4-2 6-5 7-9-4 1-7 3-9 7l-3 3 2 2 3-3Z"></path><path d="M15 9h.01"></path></svg></span>
               </article>
 
               <article class="workflow-step">
@@ -7640,7 +7609,6 @@
                 <span class="workflow-number">08</span>
                 <h3 class="workflow-title">Optimization</h3>
                 <p>Monitor performance, gather insights, and continuously improve results.</p>
-                <span class="workflow-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10h4v10H4Z"></path><path d="M10 20V4h4v16h-4Z"></path><path d="M16 20v-7h4v7h-4Z"></path></svg></span>
               </article>
             </div>
           </div>
@@ -7650,7 +7618,6 @@
 
     <section id="field-validation" class="validation-section" aria-labelledby="validation-title">
       <div class="validation-shell">
-        <span class="validation-ruler" aria-hidden="true"></span>
         <span class="validation-coordinate validation-coordinate--top" aria-hidden="true">System Blueprint v2.0</span>
         <span class="validation-coordinate validation-coordinate--bottom" aria-hidden="true">Coord. X:1240 Y:860</span>
 
