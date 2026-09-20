@@ -5570,6 +5570,7 @@
       font-size: 0.86rem;
       line-height: 1.55;
       word-break: break-word;
+      white-space: pre-wrap;
       animation: syrixMsgIn 220ms var(--ease) both;
     }
 
@@ -8158,8 +8159,33 @@
       if (syrixToggle && syrixWidget && syrixBox && syrixInput && syrixSend) {
         let syrixOpen = false;
         let syrixWaiting = false;
-        let syrixUserName = '';
-        let syrixUserEmail = '';
+        const SYRIX_SESSION_KEY = 'syrix_conversation_id';
+
+        const getSyrixConversationId = () => {
+          let conversationId = null;
+
+          try {
+            conversationId = localStorage.getItem(SYRIX_SESSION_KEY);
+          } catch (error) {
+            console.warn('Syrix could not read local session storage.', error);
+          }
+
+          if (!conversationId) {
+            conversationId = typeof crypto !== 'undefined' && crypto.randomUUID
+              ? crypto.randomUUID()
+              : `syrix-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+
+            try {
+              localStorage.setItem(SYRIX_SESSION_KEY, conversationId);
+            } catch (error) {
+              console.warn('Syrix could not persist its conversation ID.', error);
+            }
+          }
+
+          return conversationId;
+        };
+
+        const conversationId = getSyrixConversationId();
 
         const setSyrixOpen = (state) => {
           syrixOpen = state;
@@ -8199,13 +8225,16 @@
           return typing;
         };
 
-        const sniffSyrixCredentials = (message) => {
-          const nameMatch = message.match(/(?:im|i am|ako si|my name is|this is)\s+([a-zA-Z]+)/i);
-          if (nameMatch) syrixUserName = nameMatch[1];
-
-          const emailMatch = message.match(/[^\s@]+@[^\s@]+\.[^\s@]+/);
-          if (emailMatch) syrixUserEmail = emailMatch[0];
-        };
+        const normalizeSyrixReply = (reply) => reply
+          .replace(/\\n/g, '\n')
+          .replace(/```[^\n]*\n?/g, '')
+          .replace(/`([^`]+)`/g, '$1')
+          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+          .replace(/^#{1,6}\s+/gm, '')
+          .replace(/\*\*([^*]+)\*\*/g, '$1')
+          .replace(/__([^_]+)__/g, '$1')
+          .replace(/^\s*[-*+]\s+/gm, '• ')
+          .trim();
 
         const sendSyrixMessage = async () => {
           const text = syrixInput.value.trim();
@@ -8213,7 +8242,6 @@
 
           syrixInput.value = '';
           addSyrixMessage(text, 'user');
-          sniffSyrixCredentials(text);
           setSyrixWaiting(true);
 
           const typing = showSyrixTyping();
@@ -8223,23 +8251,26 @@
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                name: syrixUserName,
-                email: syrixUserEmail,
+                conversation_id: conversationId,
                 message: text,
               }),
             });
 
-            const reply = await response.text();
+            if (!response.ok) {
+              throw new Error(`Syrix request failed: ${response.status}`);
+            }
+
+            const reply = normalizeSyrixReply(await response.text());
             typing.remove();
-            addSyrixMessage(reply || 'I received your message. How else can I help?', 'bot');
+            if (reply) addSyrixMessage(reply, 'bot');
           } catch (error) {
             typing.remove();
             addSyrixMessage('Connection error. Please try again in a moment.', 'bot');
             console.error(error);
+          } finally {
+            setSyrixWaiting(false);
+            syrixInput.focus();
           }
-
-          setSyrixWaiting(false);
-          syrixInput.focus();
         };
 
         window.setTimeout(() => {
