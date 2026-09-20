@@ -12,8 +12,8 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Emman Sadiang-abay is a Web Developer and AI Automation Specialist building premium websites, funnels, and automated workflows.">
-  <title>Emman Sadiang-abay | Web Developer & AI Automation Specialist</title>
+  <meta name="description" content="Explore Emman Sadiang-abay's complete portfolio of websites, landing pages, and automation systems.">
+  <title>Projects | Emman Sadiang-abay</title>
   <style>
     :root {
       --bg: #05080a;
@@ -6918,13 +6918,686 @@
         transform: scaleX(1);
       }
     }
+  
+    .projects-library {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 112px 0 120px;
+      background:
+        radial-gradient(circle at 14% 8%, rgba(255, 115, 0, 0.08), transparent 28%),
+        linear-gradient(180deg, #05080a 0%, #071014 48%, #05080a 100%);
+    }
+
+    .projects-library::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(rgba(122, 178, 205, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 178, 205, 0.045) 1px, transparent 1px),
+        linear-gradient(rgba(122, 178, 205, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 178, 205, 0.022) 1px, transparent 1px);
+      background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+      pointer-events: none;
+    }
+
+    .projects-library-shell {
+      width: min(calc(100% - 80px), var(--container));
+      margin: 0 auto;
+    }
+
+    .projects-library-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(520px, 1.08fr);
+      gap: clamp(44px, 5vw, 76px);
+      align-items: center;
+      padding: 24px 0 64px;
+      border-bottom: 1px solid rgba(122, 178, 205, 0.18);
+    }
+
+    .projects-library-copy {
+      min-width: 0;
+    }
+
+    .projects-library-kicker,
+    .project-group-label {
+      color: var(--orange);
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .projects-library-kicker {
+      margin: 0 0 28px;
+    }
+
+    .projects-library-hero h1 {
+      max-width: 720px;
+      margin: 0;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.8rem, 4.45vw, 4.55rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .projects-library-hero h1 span {
+      color: var(--orange);
+    }
+
+    .projects-library-intro {
+      max-width: 630px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.35vw, 1.12rem);
+      line-height: 1.75;
+    }
+
+    .project-library-panel {
+      position: relative;
+      min-width: 0;
+      min-height: 470px;
+      display: grid;
+      grid-template-columns: minmax(220px, 0.43fr) minmax(0, 0.57fr);
+      overflow: hidden;
+      border: 1px solid rgba(122, 178, 205, 0.3);
+      background:
+        linear-gradient(rgba(122, 178, 205, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 178, 205, 0.04) 1px, transparent 1px),
+        rgba(3, 10, 13, 0.62);
+      background-size: 24px 24px;
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0.025);
+    }
+
+    .project-library-panel::before,
+    .project-library-panel::after {
+      content: "+";
+      position: absolute;
+      z-index: 3;
+      color: rgba(242, 238, 230, 0.82);
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .project-library-panel::before {
+      top: -11px;
+      left: -8px;
+    }
+
+    .project-library-panel::after {
+      right: -8px;
+      bottom: -11px;
+    }
+
+    .project-library-data {
+      position: relative;
+      z-index: 2;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 30px 30px 26px;
+      border-right: 1px solid rgba(122, 178, 205, 0.2);
+      background: rgba(2, 8, 11, 0.38);
+    }
+
+    .project-library-label,
+    .project-library-version,
+    .project-library-total span,
+    .project-library-breakdown,
+    .project-library-quote,
+    .project-library-disciplines,
+    .project-library-actions,
+    .project-library-signoff {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .project-library-label {
+      margin: 0 0 22px;
+      color: rgba(242, 238, 230, 0.8);
+      font-size: 0.68rem;
+      font-weight: 800;
+    }
+
+    .project-library-total {
+      display: grid;
+      gap: 12px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(122, 178, 205, 0.28);
+    }
+
+    .project-library-total strong {
+      color: var(--orange);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.5rem, 5vw, 5rem);
+      line-height: 0.9;
+      font-weight: 700;
+    }
+
+    .project-library-total span {
+      color: rgba(242, 238, 230, 0.72);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .project-library-breakdown {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0;
+      padding: 0 0 24px;
+      border-bottom: 1px solid rgba(122, 178, 205, 0.28);
+    }
+
+    .project-library-breakdown div {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 10px;
+      align-items: baseline;
+      color: rgba(242, 238, 230, 0.68);
+      font-size: 0.66rem;
+      line-height: 1.35;
+    }
+
+    .project-library-breakdown strong {
+      color: rgba(242, 238, 230, 0.84);
+      font-size: 1.18rem;
+    }
+
+    .project-library-quote {
+      margin: auto 0 0;
+      color: rgba(242, 238, 230, 0.72);
+      font-size: 0.72rem;
+      font-weight: 800;
+      line-height: 1.55;
+    }
+
+    .project-library-quote::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin-top: 16px;
+      background: var(--orange);
+    }
+
+    .project-library-disciplines {
+      margin-top: 18px;
+      color: rgba(122, 178, 205, 0.72);
+      font-size: 0.58rem;
+      line-height: 1.5;
+    }
+
+    .project-library-visual {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .project-library-version {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      z-index: 2;
+      color: rgba(122, 178, 205, 0.7);
+      font-size: 0.6rem;
+    }
+
+    .project-library-actions {
+      position: absolute;
+      top: 68px;
+      right: 24px;
+      z-index: 2;
+      display: grid;
+      gap: 7px;
+      color: rgba(242, 238, 230, 0.55);
+      font-size: 0.58rem;
+      line-height: 1;
+    }
+
+    .project-library-visual svg {
+      position: absolute;
+      inset: 42px 0 44px;
+      width: 100%;
+      height: calc(100% - 86px);
+      color: rgba(122, 178, 205, 0.32);
+    }
+
+    .project-library-visual svg .system-fill {
+      fill: rgba(122, 178, 205, 0.035);
+    }
+
+    .project-library-visual svg .system-line {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .project-library-visual svg .system-line--faint {
+      opacity: 0.5;
+    }
+
+    .project-library-visual svg .system-node {
+      fill: #071014;
+      stroke: var(--orange);
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .project-library-signoff {
+      position: absolute;
+      right: 20px;
+      bottom: 18px;
+      z-index: 2;
+      width: min(220px, calc(100% - 40px));
+      padding: 12px 14px;
+      border-top: 1px solid rgba(122, 178, 205, 0.32);
+      border-left: 1px solid rgba(122, 178, 205, 0.18);
+      color: rgba(242, 238, 230, 0.6);
+      font-size: 0.56rem;
+      line-height: 1.55;
+    }
+
+    .project-group {
+      padding-top: clamp(72px, 8vw, 108px);
+    }
+
+    .project-group + .project-group {
+      margin-top: clamp(16px, 2vw, 28px);
+      padding-top: clamp(62px, 6.5vw, 88px);
+    }
+
+    .project-group-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 34px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(122, 178, 205, 0.18);
+    }
+
+    .project-group-label {
+      margin: 0;
+    }
+
+    .project-group-header p:last-child {
+      max-width: 500px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      text-align: right;
+    }
+
+    .projects-library .project-category {
+      color: rgba(242, 238, 230, 0.88);
+      font-size: 0.66rem;
+    }
+
+    .projects-library .project-description {
+      color: rgba(242, 238, 230, 0.74);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      display: block;
+      overflow: visible;
+      -webkit-box-orient: initial;
+      -webkit-line-clamp: unset;
+    }
+
+    #automations-systems .project-info h3 {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+    }
+
+    .projects-library .project-stack-label {
+      color: rgba(122, 178, 205, 0.88);
+      font-size: 0.62rem;
+    }
+
+    .projects-library .project-tags span {
+      color: rgba(242, 238, 230, 0.78);
+      font-size: 0.66rem;
+      line-height: 1.15;
+    }
+
+    .projects-library .project-image-placeholder {
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(rgba(122, 178, 205, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 178, 205, 0.07) 1px, transparent 1px),
+        radial-gradient(circle at 50% 50%, rgba(255, 115, 0, 0.08), transparent 42%),
+        #050e12;
+      background-size: 24px 24px, 24px 24px, auto, auto;
+    }
+
+    .automation-image-trigger {
+      width: 100%;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: zoom-in;
+    }
+
+    .automation-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 180;
+      display: grid;
+      place-items: center;
+      padding: clamp(18px, 4vw, 56px);
+      background: rgba(2, 6, 8, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .automation-lightbox[hidden] {
+      display: none;
+    }
+
+    .automation-lightbox-frame {
+      position: relative;
+      width: min(1180px, 94vw);
+      max-height: 88vh;
+      padding: clamp(10px, 1.5vw, 18px);
+      border: 1px solid rgba(122, 178, 205, 0.32);
+      background:
+        linear-gradient(rgba(122, 178, 205, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 178, 205, 0.035) 1px, transparent 1px),
+        #050e12;
+      background-size: 24px 24px;
+    }
+
+    .automation-lightbox-frame::before,
+    .automation-lightbox-frame::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-color: var(--orange);
+      pointer-events: none;
+    }
+
+    .automation-lightbox-frame::before {
+      top: -6px;
+      left: -6px;
+      border-top: 1px solid;
+      border-left: 1px solid;
+    }
+
+    .automation-lightbox-frame::after {
+      right: -6px;
+      bottom: -6px;
+      border-right: 1px solid;
+      border-bottom: 1px solid;
+    }
+
+    .automation-lightbox img {
+      display: block;
+      width: 100%;
+      max-height: calc(88vh - 36px);
+      object-fit: contain;
+      background: #03080a;
+    }
+
+    .automation-lightbox-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 115, 0, 0.78);
+      background: rgba(3, 8, 10, 0.94);
+      color: var(--orange);
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .automation-lightbox-close:hover {
+      border-color: var(--orange);
+      background: rgba(255, 115, 0, 0.1);
+    }
+
+    .automation-lightbox-nav {
+      position: absolute;
+      top: 50%;
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 115, 0, 0.78);
+      background: rgba(3, 8, 10, 0.94);
+      color: var(--orange);
+      font-size: 1.25rem;
+      line-height: 1;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .automation-lightbox-nav:hover {
+      border-color: var(--orange);
+      background: rgba(255, 115, 0, 0.1);
+    }
+
+    .automation-lightbox-nav[hidden] {
+      display: none;
+    }
+
+    .automation-lightbox-prev {
+      left: 26px;
+    }
+
+    .automation-lightbox-next {
+      right: 26px;
+    }
+
+    .automation-lightbox-counter {
+      position: absolute;
+      left: 26px;
+      bottom: 24px;
+      z-index: 2;
+      padding: 7px 10px;
+      border: 1px solid rgba(122, 178, 205, 0.3);
+      background: rgba(3, 8, 10, 0.9);
+      color: #8fcaff;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .automation-lightbox-counter[hidden] {
+      display: none;
+    }
+
+    body.has-automation-lightbox {
+      overflow: hidden;
+    }
+
+    @media (max-width: 640px) {
+      .automation-lightbox-nav {
+        width: 38px;
+        height: 38px;
+      }
+
+      .automation-lightbox-prev {
+        left: 18px;
+      }
+
+      .automation-lightbox-next {
+        right: 18px;
+      }
+
+      .automation-lightbox-counter {
+        left: 18px;
+        bottom: 16px;
+      }
+    }
+
+    .automation-cover-placeholder {
+      position: relative;
+      width: min(72%, 360px);
+      min-height: 96px;
+      display: grid;
+      place-content: center;
+      gap: 10px;
+      padding: 22px;
+      border-top: 1px solid rgba(122, 178, 205, 0.38);
+      border-bottom: 1px solid rgba(122, 178, 205, 0.2);
+      color: rgba(242, 238, 230, 0.76);
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .automation-cover-placeholder::before,
+    .automation-cover-placeholder::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-color: var(--orange);
+    }
+
+    .automation-cover-placeholder::before {
+      top: -5px;
+      left: -5px;
+      border-top: 1px solid;
+      border-left: 1px solid;
+    }
+
+    .automation-cover-placeholder::after {
+      right: -5px;
+      bottom: -5px;
+      border-right: 1px solid;
+      border-bottom: 1px solid;
+    }
+
+    .automation-cover-placeholder b {
+      color: var(--orange);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+    }
+
+    .automation-cover-placeholder small {
+      color: rgba(122, 178, 205, 0.72);
+      font-size: 0.56rem;
+      letter-spacing: 0.12em;
+    }
+
+    @media (max-width: 960px) {
+      .projects-library-hero {
+        grid-template-columns: 1fr;
+        gap: 44px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .projects-library {
+        padding: 90px 0 84px;
+      }
+
+      .projects-library-shell {
+        width: min(calc(100% - 32px), 440px);
+      }
+
+      .projects-library-hero {
+        gap: 36px;
+        padding: 24px 0 54px;
+      }
+
+      .projects-library-hero h1 {
+        font-size: clamp(2.25rem, 10.5vw, 3.4rem);
+      }
+
+      .projects-library-kicker {
+        margin-bottom: 22px;
+      }
+
+      .projects-library-intro {
+        margin-top: 22px;
+      }
+
+      .project-library-panel {
+        min-height: 0;
+        grid-template-columns: 1fr;
+      }
+
+      .project-library-data {
+        padding: 24px 22px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(122, 178, 205, 0.2);
+      }
+
+      .project-library-breakdown {
+        margin-block: 20px;
+        padding-bottom: 20px;
+      }
+
+      .project-library-quote {
+        margin-top: 2px;
+      }
+
+      .project-library-visual {
+        min-height: 250px;
+      }
+
+      .project-library-visual svg {
+        inset: 26px 0 42px;
+        height: calc(100% - 68px);
+      }
+
+      .project-library-actions {
+        top: 48px;
+        right: 16px;
+      }
+
+      .project-library-version {
+        top: 16px;
+        right: 16px;
+      }
+
+      .project-group {
+        padding-top: 64px;
+      }
+
+      .project-group + .project-group {
+        margin-top: 16px;
+        padding-top: 52px;
+      }
+
+      .project-group-header {
+        display: grid;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      .project-group-header p:last-child {
+        max-width: 34ch;
+        text-align: left;
+      }
+    }
   </style>
 </head>
 <body>
   <header class="site-header" data-header>
     <div class="scroll-progress" data-progress aria-hidden="true"></div>
     <nav class="nav-shell" aria-label="Primary navigation">
-      <a class="brand" href="#home" aria-label="Emman Sadiang-abay home">
+      <a class="brand" href="../#home" aria-label="Emman Sadiang-abay home">
         <span class="maker-mark" aria-hidden="true"><span>{</span>E.S.<span>}</span></span>
         <span class="brand-copy">
           <strong>Emman Sadiang-abay</strong>
@@ -6935,372 +7608,73 @@
         <span aria-hidden="true"></span>
       </button>
       <div class="nav-links" id="primary-nav">
-        <a href="#home">Home</a>
-        <a href="#behind-blueprint">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <a class="nav-booking" href="book-a-call/">Book a Call</a>
+        <a href="../#home">Home</a>
+        <a href="../#behind-blueprint">About</a>
+        <a href="./" aria-current="page">Projects</a>
+        <a href="../#contact">Contact</a>
+        <a class="nav-booking" href="../book-a-call/">Book a Call</a>
       </div>
     </nav>
   </header>
 
-  <main id="home">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="blueprint-frame" aria-hidden="true"></div>
-      <span class="draw-line a" aria-hidden="true"></span>
-      <span class="draw-line b" aria-hidden="true"></span>
-      <span class="draw-line c" aria-hidden="true"></span>
-      <p class="hand-note one" aria-hidden="true">Turning ideas<br>into automated<br>digital systems.</p>
-      <p class="hand-note two" aria-hidden="true">Build with intent.<br>Launch with impact.</p>
-
-      <div class="hero-grid">
-        <div class="title-block">
-          <div class="system-status">
-            <span class="status-dot" aria-hidden="true"></span>
-            <span>Online</span>
+  <main id="projects-page">
+    <section class="projects-library" aria-labelledby="projects-library-title">
+      <div class="projects-library-shell">
+        <header class="projects-library-hero blueprint-reveal">
+          <div class="projects-library-copy">
+            <p class="projects-library-kicker">Projects / Systems Library</p>
+            <h1 id="projects-library-title">Selected work<br>across websites,<br>landing pages,<br>and <span>automation<br>systems.</span></h1>
+            <p class="projects-library-intro">A complete collection of digital experiences and operational systems built with clarity, purpose, and measurable outcomes in mind.</p>
           </div>
 
-          <h1 id="hero-title">Hi, I'm <span class="accent">Emman.</span></h1>
-
-          <p class="role-line">Web Developer &<br><span>AI Automation</span> Specialist</p>
-
-          <p class="hero-copy">I design and build modern websites, funnels, and automation systems that help businesses capture leads, streamline operations, and grow with less manual work.</p>
-
-          <div class="action-row" aria-label="Hero actions">
-            <a class="blueprint-btn primary" href="#projects">View Blueprint <span class="arrow" aria-hidden="true">-></span></a>
-            <a class="blueprint-btn" href="book-a-call/">Book a Call <span class="arrow" aria-hidden="true">-></span></a>
-          </div>
-        </div>
-
-        <div class="blueprint-lab" aria-label="Blueprint annotations for Emman's skills, workflow, and project readiness">
-          <div class="sketch-panel">
-            <div class="site-sketch" aria-hidden="true">
-              <span class="dim-line top">1440 PX</span>
-              <span class="dim-line left">320 PX</span>
-            </div>
-            <p class="blue-label">01 / Website Structure</p>
-          </div>
-
-          <div class="annotation-panel flow-panel">
-            <div class="panel-inner">
-              <p class="panel-title">02 / Automation Flow</p>
-              <div class="workflow">
-                <span class="flow-step"><span class="flow-icon">o</span>Lead Capture</span>
-                <span class="flow-step"><span class="flow-icon">[]</span>Funnel / Site</span>
-                <span class="flow-step"><span class="flow-icon">DB</span>CRM</span>
-                <span class="flow-step"><span class="flow-icon">+</span>Automation</span>
-                <span class="flow-step"><span class="flow-icon">@</span>Follow-up</span>
+          <aside class="project-library-panel" aria-label="Project library summary">
+            <div class="project-library-data">
+              <p class="project-library-label">// Project Library</p>
+              <div class="project-library-total">
+                <strong>20</strong>
+                <span>Total Projects</span>
               </div>
-            </div>
-          </div>
-
-          <div class="annotation-panel stack-panel">
-            <div class="panel-inner">
-              <p class="panel-title">03 / Tech Stack</p>
-              <div class="stack-list">
-                <div>Frontend Systems</div>
-                <div>GoHighLevel</div>
-                <div>Make.com</div>
-                <div>n8n</div>
-                <div>Zapier</div>
-                <div>ManyChat</div>
-                <div>OpenAI API</div>
+              <div class="project-library-breakdown">
+                <div><strong>07</strong><span>Landing Pages</span></div>
+                <div><strong>05</strong><span>Websites</span></div>
+                <div><strong>08</strong><span>Automations &amp; Systems</span></div>
               </div>
+              <p class="project-library-quote">&ldquo;Ideas<br>built into<br>real solutions.&rdquo;</p>
+              <p class="project-library-disciplines">Web / Funnels / Automation</p>
             </div>
-          </div>
 
-          <div class="annotation-panel status-panel">
-            <div class="panel-inner">
-              <p class="panel-title">04 / System Status</p>
-              <div class="status-list">
-                <div><span>UI Quality</span><strong>Stable</strong></div>
-                <div><span>Automation Flow</span><strong>Active</strong></div>
-                <div><span>Integration</span><strong>Connected</strong></div>
-                <div><span>Response Time</span><strong>Ready</strong></div>
-              </div>
-              <div class="health-bar" aria-hidden="true"><span></span></div>
+            <div class="project-library-visual" aria-hidden="true">
+              <span class="project-library-version">v1.0</span>
+              <span class="project-library-actions">Design<br>Develop<br>Automate<br>Scale</span>
+              <svg viewBox="0 0 520 420" role="presentation">
+                <circle class="system-fill" cx="272" cy="228" r="126"></circle>
+                <circle class="system-line" cx="272" cy="228" r="126"></circle>
+                <ellipse class="system-line system-line--faint" cx="272" cy="228" rx="126" ry="46"></ellipse>
+                <ellipse class="system-line system-line--faint" cx="272" cy="228" rx="126" ry="82"></ellipse>
+                <ellipse class="system-line system-line--faint" cx="272" cy="228" rx="48" ry="126"></ellipse>
+                <ellipse class="system-line system-line--faint" cx="272" cy="228" rx="88" ry="126"></ellipse>
+                <path class="system-line" d="M68 152C160 88 356 86 464 174"></path>
+                <path class="system-line system-line--faint" d="M48 248C150 182 374 194 478 284"></path>
+                <path class="system-line" d="M106 342C200 384 388 354 448 250"></path>
+                <path class="system-line system-line--faint" d="M146 72C286 114 410 202 442 340"></path>
+                <rect class="system-node" x="63" y="147" width="8" height="8"></rect>
+                <rect class="system-node" x="141" y="68" width="8" height="8"></rect>
+                <rect class="system-node" x="460" y="170" width="8" height="8"></rect>
+                <rect class="system-node" x="474" y="280" width="8" height="8"></rect>
+                <rect class="system-node" x="102" y="338" width="8" height="8"></rect>
+                <rect class="system-node" x="438" y="336" width="8" height="8"></rect>
+              </svg>
+              <span class="project-library-signoff">Built with intent.<br>Engineered for impact.</span>
             </div>
-          </div>
-
-          <div class="annotation-panel availability-panel">
-            <div class="panel-inner">
-              <p class="panel-title">05 / Availability</p>
-              <strong><span class="status-dot" aria-hidden="true"></span>Available</strong>
-              <p>Open for select projects starting this month.</p>
-              <em>Let's build something impactful together.</em>
-            </div>
-          </div>
-
-          <div class="stamp" aria-label="Digital systems approved maker stamp">
-            <span class="top">Digital Systems</span>
-            <strong>E.S</strong>
-            <span class="bottom">Built With Purpose</span>
-          </div>
-
-        </div>
-
-        <div class="title-plate" aria-label="Project title block">
-          <div><span>Project</span><strong>Emman.dev</strong></div>
-          <div><span>Version</span><strong>3.0</strong></div>
-          <div><span>Purpose</span><strong>Web Development & AI Automation Systems</strong></div>
-          <div><span>Designed By</span><strong>Emman Sadiang-abay</strong></div>
-          <div class="ready"><span>Status</span><strong>Build Ready</strong></div>
-          <div><span>Client</span><strong>Businesses Ready To Grow</strong></div>
-        </div>
-
-        <div class="tools-band" aria-label="Tools Emman works with">
-          <p>Systems Toolkit</p>
-              <div class="tool-grid">
-                <span class="tool"><b>VS</b>VS Code</span>
-                <span class="tool"><b>HL</b>GoHighLevel</span>
-                <span class="tool"><b>MK</b>Make.com</span>
-                <span class="tool"><b>N8</b>n8n</span>
-                <span class="tool"><b>AI</b>OpenAI</span>
-                <span class="tool"><b>MC</b>ManyChat</span>
-                <span class="tool"><b>ZP</b>Zapier</span>
-            </div>
-        </div>
-      </div>
-
-      <span class="scroll-cue" aria-hidden="true">Scroll to Explore</span>
-    </section>
-
-    <div class="production-strip" aria-label="Production environments trusted by clients">
-      <div class="production-shell">
-        <div class="production-label">
-          <span>Production Environments</span>
-          <strong>08 Verified Clients</strong>
-          <p>Trusted by businesses across New Zealand, Australia, and international clients through websites, automation systems, CRM implementations, and digital solutions.</p>
-        </div>
-        <div class="production-grid" aria-label="Verified client environments">
-          <span>SynrGEE</span>
-          <span>Primarc</span>
-          <span>Conscious Evolution Academy</span>
-          <span>Kerikeri Golf Club</span>
-          <span>McCondach Movers &amp; Storage</span>
-          <span>Exclusive Boat Haulage</span>
-          <span>Brinc Academy</span>
-          <span>Eighty-Eight Hotel</span>
-        </div>
-        <aside class="production-status" aria-label="Deployment status">
-          <span>Deployment Status</span>
-          <strong>Verified ✓</strong>
-          <span>08 Production Builds</span>
-          <span>NZ • PH • Remote</span>
-        </aside>
-      </div>
-    </div>
-
-    <section id="credibility" class="credibility-strip" aria-labelledby="credibility-title">
-      <div class="credibility-shell">
-        <div class="credibility-header">
-          <div>
-            <p class="credibility-kicker">Foundation Layer</p>
-            <h2 id="credibility-title">Every Layer Has A Purpose.</h2>
-          </div>
-          <p class="credibility-note">Four connected disciplines that turn a modern website into a working digital growth engine.</p>
-          <div class="section-cta-row" aria-label="Capability actions">
-            <a class="blueprint-btn" href="book-a-call/">Let's Talk <span class="arrow" aria-hidden="true">-></span></a>
-          </div>
-        </div>
-
-        <div class="capability-rail" aria-label="Core capabilities">
-          <article class="capability-annotation">
-            <span class="capability-index">01 / Web</span>
-            <div>
-              <h3>Website Development</h3>
-              <p>Responsive, performance-minded builds with clean structure and polished front-end execution.</p>
-            </div>
-            <span class="capability-tag">Execution Layer</span>
-          </article>
-
-          <article class="capability-annotation">
-            <span class="capability-index">02 / AI</span>
-            <div>
-              <h3>AI Automation</h3>
-              <p>Smart workflows that reduce manual work, connect tools, and keep business processes moving.</p>
-            </div>
-            <span class="capability-tag">Logic Layer</span>
-          </article>
-
-          <article class="capability-annotation">
-            <span class="capability-index">03 / CRM</span>
-            <div>
-              <h3>CRM & Funnels</h3>
-              <p>Lead capture, nurture paths, pipelines, and follow-up systems built around conversion intent.</p>
-            </div>
-            <span class="capability-tag">Growth Layer</span>
-          </article>
-
-          <article class="capability-annotation">
-            <span class="capability-index">04 / UX</span>
-            <div>
-              <h3>UI/UX Engineering</h3>
-              <p>Interface decisions shaped by clarity, hierarchy, accessibility, and real user behavior.</p>
-            </div>
-            <span class="capability-tag">Experience Layer</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="behind-blueprint" class="builder-section" aria-labelledby="builder-title">
-      <div class="builder-shell">
-        <header class="builder-heading blueprint-reveal">
-          <div>
-            <p class="builder-kicker">System Profile / Builder</p>
-            <h2 id="builder-title"><span class="title-line">Behind the</span><span class="title-line title-accent">Blueprint.</span></h2>
-          </div>
-          <p>Every system needs a builder who understands structure, intent, and the people who will use it. This is the operating logic behind Emman's work.</p>
+          </aside>
         </header>
 
-        <div class="builder-document">
-          <div class="builder-row">
-            <div class="portrait-frame" aria-label="Blueprint-style maker portrait">
-              <span class="profile-annotation top" aria-hidden="true">// Builder Profile</span>
-              <span class="profile-annotation coords" aria-hidden="true">14.5995 N<br>120.9842 E</span>
-              <span class="measure-line x" aria-hidden="true"></span>
-              <span class="measure-line y" aria-hidden="true"></span>
-              <div class="portrait-mark">
-                <img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/q_auto,f_auto/v1755419077/emman_mlawpf.jpg" alt="Portrait of Emman Sadiang-abay">
-              </div>
-              <p class="profile-note" aria-hidden="true">Build with intent. Launch with impact.</p>
-              <div class="portrait-caption">
-                <span>Maker's Mark</span>
-                <span>Digital Systems</span>
-              </div>
-            </div>
-
-            <div class="builder-stack">
-              <section class="builder-module mission-module blueprint-reveal" aria-labelledby="mission-title">
-                <p class="module-label">01 / Mission</p>
-                <p id="mission-title" class="mission-text">Design and build modern websites, funnels, and automations that help businesses move with more clarity and less manual friction.</p>
-              </section>
-
-              <section class="builder-module focus-module blueprint-reveal" aria-labelledby="focus-title">
-                <p class="module-label">02 / Current Focus</p>
-                <div id="focus-title" class="focus-panel" aria-label="Current focus areas">
-                  <div class="focus-item">
-                    <strong>Interface Systems</strong>
-                    <span>Clean, responsive front-end builds with structure, hierarchy, and performance in mind.</span>
-                  </div>
-                  <div class="focus-item">
-                    <strong>Automation Logic</strong>
-                    <span>Workflows that connect tools, reduce repetitive tasks, and keep follow-up consistent.</span>
-                  </div>
-                  <div class="focus-item">
-                    <strong>Growth Infrastructure</strong>
-                    <span>Funnels, CRM paths, and lead systems built around real business outcomes.</span>
-                  </div>
-                </div>
-              </section>
-            </div>
-          </div>
-
-          <div class="builder-row">
-            <div class="builder-left-stack">
-              <div class="spec-sheet blueprint-reveal">
-                <div class="spec-row">
-                  <span class="spec-label">Name</span>
-                  <span class="spec-value">Emman Sadiang-abay</span>
-                </div>
-                <div class="spec-row">
-                  <span class="spec-label">Role</span>
-                  <span class="spec-value">Web Developer & AI Automation Specialist</span>
-                </div>
-                <div class="spec-row">
-                  <span class="spec-label">Location</span>
-                  <span class="spec-value">Manila, Philippines</span>
-                </div>
-                <div class="spec-row">
-                  <span class="spec-label">Status</span>
-                  <span class="spec-value status">Available for select projects</span>
-                </div>
-                <div class="spec-row">
-                  <span class="spec-label">Mission</span>
-                  <span class="spec-value">Build digital systems that are clear, useful, and designed to compound over time.</span>
-                </div>
-              </div>
-
-              <section class="builder-module principles-module blueprint-reveal" aria-labelledby="principles-title">
-                <p class="module-label">04 / Engineering Principles</p>
-                <div id="principles-title" class="principles-grid">
-                  <article class="principle-card">
-                    <span class="principle-index">01</span>
-                    <h3>Clarity over complexity</h3>
-                  </article>
-                  <article class="principle-card">
-                    <span class="principle-index">02</span>
-                    <h3>Systems before shortcuts</h3>
-                  </article>
-                  <article class="principle-card">
-                    <span class="principle-index">03</span>
-                    <h3>Automation with purpose</h3>
-                  </article>
-                  <article class="principle-card">
-                    <span class="principle-index">04</span>
-                    <h3>Design for people first</h3>
-                  </article>
-                </div>
-              </section>
-            </div>
-
-            <div class="builder-main">
-              <section class="builder-module timeline-module blueprint-reveal" aria-labelledby="timeline-title">
-                <p class="module-label">03 / Journey Timeline</p>
-                <div id="timeline-title" class="builder-timeline">
-                  <article class="timeline-item">
-                    <span class="timeline-year">Phase 01</span>
-                    <div class="timeline-copy">
-                      <h3>Engineering Mindset</h3>
-                      <p>Developed a builder's approach: understand the structure first, then design the solution around what needs to work.</p>
-                    </div>
-                  </article>
-
-                  <article class="timeline-item">
-                    <span class="timeline-year">Phase 02</span>
-                    <div class="timeline-copy">
-                      <h3>Front-End Development</h3>
-                      <p>Focused on translating ideas into responsive, polished web experiences with clean implementation and clear hierarchy.</p>
-                    </div>
-                  </article>
-
-                  <article class="timeline-item">
-                    <span class="timeline-year">Phase 03</span>
-                    <div class="timeline-copy">
-                      <h3>Automation Systems</h3>
-                      <p>Expanded into GoHighLevel, Make.com, n8n, Zapier, and workflow design to connect websites with business operations.</p>
-                    </div>
-                  </article>
-
-                  <article class="timeline-item">
-                    <span class="timeline-year">Phase 04</span>
-                    <div class="timeline-copy">
-                      <h3>Digital Systems Builder</h3>
-                      <p>Now combining web development, UX thinking, CRM flows, and automation into cohesive systems built with intent.</p>
-                    </div>
-                  </article>
-                </div>
-              </section>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="projects-section" aria-labelledby="projects-title">
-      <div class="projects-shell">
-        <header class="projects-heading blueprint-reveal">
-          <div>
-            <p class="projects-kicker">Section 04</p>
-            <h2 id="projects-title">Featured <span>Builds.</span></h2>
-            <p class="builder-kicker">Digital Systems Built With Purpose.</p>
-          </div>
-          <p>A selection of systems, websites, and automations built to solve real problems, drive results, and create meaningful impact.</p>
+      <section class="project-group" id="landing-pages" aria-labelledby="landing-pages-title">
+        <header class="project-group-header blueprint-reveal">
+          <p class="project-group-label" id="landing-pages-title">01 / Landing Pages</p>
+          <p>Campaign, webinar, event, and conversion-focused landing experiences.</p>
         </header>
-
-        <div class="project-cases" aria-label="Featured project case studies">
+        <div class="project-cases" aria-label="Landing Pages projects">
           <article class="project-case blueprint-reveal">
             <div class="project-copy">
               <div class="project-number"><span>Project</span></div>
@@ -7318,41 +7692,6 @@
             </a>
           </article>
 
-          <article class="project-case blueprint-reveal">
-            <div class="project-copy">
-              <div class="project-number"><span>Project</span></div>
-              <div class="project-info">
-                <h3>Priya Khandalkar Website</h3>
-                <span class="project-category">Personal Brand Website</span>
-                <p class="project-description">Professional personal brand site with user-centered flows and clean design.</p>
-                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>Website</span><span>Brand System</span><span>Responsive UI</span></div></div>
-                <a class="project-cta" href="https://priyankakhandalkar.com/" target="_blank" rel="noopener noreferrer">View Live Project <span aria-hidden="true">-></span></a>
-              </div>
-            </div>
-            <a class="project-preview" href="https://priyankakhandalkar.com/" target="_blank" rel="noopener noreferrer" aria-label="View Priya Khandalkar Website">
-              <span class="project-preview-label">Live Preview</span>
-              <div class="project-image-frame"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1755525439/emman_priyanka_proj_yhbzeu.png" alt="Priya Khandalkar Website"></div>
-            </a>
-          </article>
-
-          <article class="project-case blueprint-reveal">
-            <div class="project-copy">
-              <div class="project-number"><span>Project</span></div>
-              <div class="project-info">
-                <h3>Sorimar Estrada Website</h3>
-                <span class="project-category">Personal Branding Website</span>
-                <p class="project-description">A premium personal branding website built in GoHighLevel, featuring a clean and sophisticated design, responsive layouts, and strategically structured content to showcase coaching services, personal storytelling, and client engagement.</p>
-                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>GoHighLevel</span><span>Personal Brand</span><span>Responsive Layout</span></div></div>
-                <a class="project-cta" href="https://sorimar.com/" target="_blank" rel="noopener noreferrer">View Live Project <span aria-hidden="true">-></span></a>
-              </div>
-            </div>
-            <a class="project-preview" href="https://sorimar.com/" target="_blank" rel="noopener noreferrer" aria-label="View Sorimar Estrada Website">
-              <span class="project-preview-label">Live Preview</span>
-              <div class="project-image-frame"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1780460368/Screenshot_2026-05-23_130334_p8ygnw.png" alt="Sorimar's website"></div>
-            </a>
-          </article>
-
-          <template id="deferred-project-cases">
           <article class="project-case blueprint-reveal">
             <div class="project-copy">
               <div class="project-number"><span>Project</span></div>
@@ -7384,23 +7723,6 @@
             <a class="project-preview" href="https://scale.synrgee.net/black-friday-deals-page" target="_blank" rel="noopener noreferrer" aria-label="View SynrGEE Black Friday CEO Experience">
               <span class="project-preview-label">Live Preview</span>
               <div class="project-image-frame"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1764509834/emman_black_friday_mdea1l.png" alt="Black Friday"></div>
-            </a>
-          </article>
-
-          <article class="project-case blueprint-reveal">
-            <div class="project-copy">
-              <div class="project-number"><span>Project</span></div>
-              <div class="project-info">
-                <h3>McCondach Movers & Storage</h3>
-                <span class="project-category">Service Website</span>
-                <p class="project-description">Professional moving and storage services website featuring full navigation, hero section with clear value proposition, and contact CTA for Northland and New Zealand relocations.</p>
-                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>GoHighLevel</span><span>Service Website</span><span>Lead CTA</span></div></div>
-                <a class="project-cta" href="https://mccondachmovers.co.nz/" target="_blank" rel="noopener noreferrer">View Live Project <span aria-hidden="true">-></span></a>
-              </div>
-            </div>
-            <a class="project-preview" href="https://mccondachmovers.co.nz/" target="_blank" rel="noopener noreferrer" aria-label="View McCondach Movers & Storage">
-              <span class="project-preview-label">Live Preview</span>
-              <div class="project-image-frame"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1764511039/emman_mccondach_j8leh7.png" alt="McCondach movers"></div>
             </a>
           </article>
 
@@ -7455,6 +7777,82 @@
             </a>
           </article>
 
+          <article class="project-case blueprint-reveal" data-project-slug="xum-crm-changelog" data-project-category="landing-page">
+            <div class="project-copy">
+              <div class="project-number"><span>Project</span></div>
+              <div class="project-info">
+                <h3>XUM CRM Changelog</h3>
+                <span class="project-category">Product Changelog / Content Interface</span>
+                <p class="project-description">A structured product changelog for XUM CRM that presents improvements, interface updates, and technical releases as the frontend output of an automated content pipeline.</p>
+                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>Product Changelog</span><span>Content Interface</span><span>Automation Output</span></div></div>
+                <a class="project-cta" href="https://updates.xumcrm.com/changelog" target="_blank" rel="noopener noreferrer">View Live Project <span aria-hidden="true">-&gt;</span></a>
+              </div>
+            </div>
+            <a class="project-preview" href="https://updates.xumcrm.com/changelog" target="_blank" rel="noopener noreferrer" aria-label="View XUM CRM Changelog">
+              <span class="project-preview-label">Live Preview</span>
+              <div class="project-image-frame"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789877607/Screenshot_2026-09-20_121314_x5xrtq.png" alt="XUM CRM Changelog page preview"></div>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="project-group" id="websites" aria-labelledby="websites-title">
+        <header class="project-group-header blueprint-reveal">
+          <p class="project-group-label" id="websites-title">02 / Websites</p>
+          <p>Complete business, personal brand, service, hospitality, and venue websites.</p>
+        </header>
+        <div class="project-cases" aria-label="Websites projects">
+          <article class="project-case blueprint-reveal">
+            <div class="project-copy">
+              <div class="project-number"><span>Project</span></div>
+              <div class="project-info">
+                <h3>Priya Khandalkar Website</h3>
+                <span class="project-category">Personal Brand Website</span>
+                <p class="project-description">Professional personal brand site with user-centered flows and clean design.</p>
+                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>Website</span><span>Brand System</span><span>Responsive UI</span></div></div>
+                <a class="project-cta" href="https://priyankakhandalkar.com/" target="_blank" rel="noopener noreferrer">View Live Project <span aria-hidden="true">-></span></a>
+              </div>
+            </div>
+            <a class="project-preview" href="https://priyankakhandalkar.com/" target="_blank" rel="noopener noreferrer" aria-label="View Priya Khandalkar Website">
+              <span class="project-preview-label">Live Preview</span>
+              <div class="project-image-frame"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1755525439/emman_priyanka_proj_yhbzeu.png" alt="Priya Khandalkar Website"></div>
+            </a>
+          </article>
+
+          <article class="project-case blueprint-reveal">
+            <div class="project-copy">
+              <div class="project-number"><span>Project</span></div>
+              <div class="project-info">
+                <h3>Sorimar Estrada Website</h3>
+                <span class="project-category">Personal Branding Website</span>
+                <p class="project-description">A premium personal branding website built in GoHighLevel, featuring a clean and sophisticated design, responsive layouts, and strategically structured content to showcase coaching services, personal storytelling, and client engagement.</p>
+                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>GoHighLevel</span><span>Personal Brand</span><span>Responsive Layout</span></div></div>
+                <a class="project-cta" href="https://sorimar.com/" target="_blank" rel="noopener noreferrer">View Live Project <span aria-hidden="true">-></span></a>
+              </div>
+            </div>
+            <a class="project-preview" href="https://sorimar.com/" target="_blank" rel="noopener noreferrer" aria-label="View Sorimar Estrada Website">
+              <span class="project-preview-label">Live Preview</span>
+              <div class="project-image-frame"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1780460368/Screenshot_2026-05-23_130334_p8ygnw.png" alt="Sorimar's website"></div>
+            </a>
+          </article>
+
+          <article class="project-case blueprint-reveal">
+            <div class="project-copy">
+              <div class="project-number"><span>Project</span></div>
+              <div class="project-info">
+                <h3>McCondach Movers & Storage</h3>
+                <span class="project-category">Service Website</span>
+                <p class="project-description">Professional moving and storage services website featuring full navigation, hero section with clear value proposition, and contact CTA for Northland and New Zealand relocations.</p>
+                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>GoHighLevel</span><span>Service Website</span><span>Lead CTA</span></div></div>
+                <a class="project-cta" href="https://mccondachmovers.co.nz/" target="_blank" rel="noopener noreferrer">View Live Project <span aria-hidden="true">-></span></a>
+              </div>
+            </div>
+            <a class="project-preview" href="https://mccondachmovers.co.nz/" target="_blank" rel="noopener noreferrer" aria-label="View McCondach Movers & Storage">
+              <span class="project-preview-label">Live Preview</span>
+              <div class="project-image-frame"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1764511039/emman_mccondach_j8leh7.png" alt="McCondach movers"></div>
+            </a>
+          </article>
+
           <article class="project-case blueprint-reveal">
             <div class="project-copy">
               <div class="project-number"><span>Project</span></div>
@@ -7476,25 +7874,6 @@
             <div class="project-copy">
               <div class="project-number"><span>Project</span></div>
               <div class="project-info">
-                <h3>Workflow Automation</h3>
-                <span class="project-category">Business Process Automation</span>
-                <p class="project-description">Smart business process automation that eliminates manual tasks and connects multiple platforms to streamline marketing, sales, and operations.</p>
-                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>Automation</span><span>Workflow</span><span>Operations</span></div></div>
-                <a class="project-cta" href="https://oreoluwaakinola.my.canva.site/workflow-automation" target="_blank" rel="noopener noreferrer">View Live Project <span aria-hidden="true">-></span></a>
-              </div>
-            </div>
-            <a class="project-preview" href="https://oreoluwaakinola.my.canva.site/workflow-automation" target="_blank" rel="noopener noreferrer" aria-label="View Workflow Automation">
-              <span class="project-preview-label">Live Preview</span>
-              <div class="project-image-frame"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1764548951/Screenshot_2025-12-01_082820_flq8ja.png" alt="Workflow automation"></div>
-            </a>
-          </article>
-
-          </template>
-
-          <article class="project-case blueprint-reveal">
-            <div class="project-copy">
-              <div class="project-number"><span>Project</span></div>
-              <div class="project-info">
                 <h3>Keri Keri Golf Club Website</h3>
                 <span class="project-category">Golf Club Website</span>
                 <p class="project-description">Designed and developed a modern website for a golf club, showcasing course information, memberships, events, venue hire, and visitor services through a clean, responsive interface that improves user experience and encourages bookings.</p>
@@ -7508,424 +7887,246 @@
             </a>
           </article>
         </div>
+      </section>
 
-        <div class="section-cta-row projects-cta-row" aria-label="More projects">
-          <a class="blueprint-btn" href="projects/">View More Projects <span class="arrow" aria-hidden="true">-&gt;</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="process" class="process-section" aria-labelledby="process-title">
-      <div class="process-shell">
-        <span class="process-ruler process-ruler--bottom" aria-hidden="true"></span>
-        <span class="process-coordinate process-coordinate--top" aria-hidden="true">System Blueprint v2.0</span>
-        <span class="process-coordinate process-coordinate--bottom" aria-hidden="true">Built with intent. Engineered for impact.</span>
-        <div class="process-layout">
-          <div class="process-intro blueprint-reveal">
-            <div>
-              <p class="process-kicker">05 / Engineering Process</p>
-              <h2 id="process-title">Every System Starts With a <span>Process.</span></h2>
-              <p class="process-copy">Every successful project follows a repeatable engineering workflow. My process is designed to reduce uncertainty, improve communication, and build digital systems that perform reliably from launch onward.</p>
-            </div>
-
-            <div class="process-divider" aria-hidden="true"></div>
-
-            <figure class="process-philosophy">
-              <span class="process-philosophy-label">Philosophy</span>
-              <p>Good systems are not built by chance. <span>They are designed, tested, refined, and launched with intention.</span></p>
-            </figure>
-
-            <aside class="workflow-status" aria-label="Workflow status">
-              <div class="workflow-status-main">
-                <span class="workflow-label">Workflow Status</span>
-                <ul>
-                  <li><span class="status-led" aria-hidden="true"></span>Discovery Complete</li>
-                  <li><span class="status-led" aria-hidden="true"></span>Structure Approved</li>
-                  <li><span class="status-led" aria-hidden="true"></span>Ready for Build</li>
-                </ul>
-              </div>
-              <div class="signoff-panel" aria-hidden="true">
-                <span>Engineering</span>
-                <strong>Sign-Off</strong>
-                <small>E. Sadiang-abay<br>16.07.2026</small>
-              </div>
-              <div class="process-stamp" aria-hidden="true">Process<strong>OK</strong>Approved</div>
-            </aside>
-          </div>
-
-          <div class="workflow-board blueprint-reveal" aria-label="Engineering workflow">
-            <span class="workflow-frame-corner" aria-hidden="true"></span>
-            <span class="workflow-frame-corner" aria-hidden="true"></span>
-            <span class="workflow-measure" aria-hidden="true"><span>880 px</span></span>
-            <p class="workflow-topline">The Workflow</p>
-            <div class="workflow-steps">
-              <article class="workflow-step">
-                <span class="workflow-node" aria-hidden="true"></span>
-                <span class="workflow-connector" aria-hidden="true"></span>
-                <span class="workflow-number">01</span>
-                <h3 class="workflow-title">Discovery</h3>
-                <p>Understand business goals, users, and opportunities before building.</p>
-              </article>
-
-              <article class="workflow-step">
-                <span class="workflow-node" aria-hidden="true"></span>
-                <span class="workflow-connector" aria-hidden="true"></span>
-                <span class="workflow-number">02</span>
-                <h3 class="workflow-title">Strategy</h3>
-                <p>Define the roadmap, structure, and system architecture for success.</p>
-              </article>
-
-              <article class="workflow-step">
-                <span class="workflow-node" aria-hidden="true"></span>
-                <span class="workflow-connector" aria-hidden="true"></span>
-                <span class="workflow-number">03</span>
-                <h3 class="workflow-title">Design</h3>
-                <p>Create intuitive experiences and visual systems that communicate clearly.</p>
-              </article>
-
-              <article class="workflow-step">
-                <span class="workflow-node" aria-hidden="true"></span>
-                <span class="workflow-connector" aria-hidden="true"></span>
-                <span class="workflow-number">04</span>
-                <h3 class="workflow-title">Development</h3>
-                <p>Build clean, scalable, and high-performance websites and systems.</p>
-              </article>
-
-              <article class="workflow-step">
-                <span class="workflow-node" aria-hidden="true"></span>
-                <span class="workflow-connector" aria-hidden="true"></span>
-                <span class="workflow-number">05</span>
-                <h3 class="workflow-title">Automation</h3>
-                <p>Integrate smart automations to streamline workflows and save time.</p>
-              </article>
-
-              <article class="workflow-step">
-                <span class="workflow-node" aria-hidden="true"></span>
-                <span class="workflow-connector" aria-hidden="true"></span>
-                <span class="workflow-number">06</span>
-                <h3 class="workflow-title">Testing</h3>
-                <p>Test across devices, browsers, and scenarios to ensure reliability.</p>
-              </article>
-
-              <article class="workflow-step">
-                <span class="workflow-node" aria-hidden="true"></span>
-                <span class="workflow-connector" aria-hidden="true"></span>
-                <span class="workflow-number">07</span>
-                <h3 class="workflow-title">Launch</h3>
-                <p>Deploy the system with confidence and ensure smooth implementation.</p>
-              </article>
-
-              <article class="workflow-step">
-                <span class="workflow-node" aria-hidden="true"></span>
-                <span class="workflow-connector" aria-hidden="true"></span>
-                <span class="workflow-number">08</span>
-                <h3 class="workflow-title">Optimization</h3>
-                <p>Monitor performance, gather insights, and continuously improve results.</p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="field-validation" class="validation-section" aria-labelledby="validation-title">
-      <div class="validation-shell">
-        <span class="validation-coordinate validation-coordinate--top" aria-hidden="true">System Blueprint v2.0</span>
-        <span class="validation-coordinate validation-coordinate--bottom" aria-hidden="true">Coord. X:1240 Y:860</span>
-
-        <div class="validation-top">
-          <div class="validation-intro blueprint-reveal">
-            <div>
-              <p class="validation-kicker">06 / Field Validation</p>
-              <h2 id="validation-title">Trusted by Teams Building <span>Real Systems.</span></h2>
-              <p class="validation-copy">Client feedback gathered from websites, automations, CRM systems, workflows and technical projects delivered with reliability, clarity and care.</p>
-              <div class="section-cta-row" aria-label="Validation actions">
-                <a class="blueprint-btn" href="book-a-call/">Book a Call <span class="arrow" aria-hidden="true">-></span></a>
+      <section class="project-group" id="automations-systems" aria-labelledby="automations-systems-title">
+        <header class="project-group-header blueprint-reveal">
+          <p class="project-group-label" id="automations-systems-title">03 / Automations & Systems</p>
+          <p>Connected workflows and operational systems designed to reduce manual work.</p>
+        </header>
+        <div class="project-cases" aria-label="Automations & Systems projects">
+          <article class="project-case blueprint-reveal" data-project-slug="rss-openai-gohighlevel-changelog" data-project-category="automation">
+            <div class="project-copy">
+              <div class="project-number"><span>Project</span></div>
+              <div class="project-info">
+                <h3>RSS-to-CRM Changelog Automation</h3>
+                <span class="project-category">Multilingual Content Automation</span>
+                <p class="project-description">A Make.com workflow that monitors RSS content, transforms it with OpenAI, updates GoHighLevel, and routes output into English and Spanish publishing paths automatically.</p>
+                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>Make.com</span><span>OpenAI</span><span>GoHighLevel</span></div></div>
               </div>
             </div>
+            <button class="project-preview automation-image-trigger" type="button" data-gallery="rss-openai-gohighlevel-changelog" aria-label="Open RSS-to-CRM Changelog Automation workflow image" aria-haspopup="dialog">
+              <span class="project-preview-label">Workflow Preview</span>
+              <div class="project-image-frame project-image-placeholder"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789877335/Screenshot_2026-09-20_120811_eiglxh.png" alt="RSS, OpenAI, and GoHighLevel changelog automation workflow"></div>
+            </button>
+          </article>
 
-            <div class="validation-divider" aria-hidden="true"></div>
-
-          </div>
-
-          <article class="featured-validation blueprint-reveal" aria-labelledby="featured-validation-title">
-            <div class="validation-portrait" aria-hidden="true"><img src="https://primarc.nz/wp-content/uploads/2025/06/Primarc-SeanT.png" alt=""></div>
-
-            <div class="featured-content">
-              <span class="featured-label">Featured Validation / REF-001</span>
-              <h3 id="featured-validation-title">Sean Roger Thompson</h3>
-              <div class="validation-meta">
-                <span>Technical Director</span>
-                <a href="https://primarc.nz/" target="_blank" rel="noopener noreferrer">Primarc</a>
-              </div>
-              <p class="featured-quote">Emman has been reliable across every project. When he is given a task he completes it on time and communicates clearly so I always know the status of the work. He works through issues with a practical approach, identifies the real cause, and fixes it without adding complexity.</p>
-              <p class="featured-quote">His development work has been fast, accurate and well structured. He produces first drafts quickly, handles updates with speed and care, and has also taken on automation tasks that made our internal processes faster and easier to manage.</p>
-              <div class="validation-tags" aria-label="Validated capabilities">
-                <span>Web Development</span>
-                <span>Automation</span>
-                <span>CRM</span>
-                <span>Technical Operations</span>
-                <span>Problem Solving</span>
-                <span>Communication</span>
+          <article class="project-case blueprint-reveal" data-project-slug="govcon-reg-ai-webinar-registration" data-project-category="automation">
+            <div class="project-copy">
+              <div class="project-number"><span>Project</span></div>
+              <div class="project-info">
+                <h3>GovCon AI Webinar Registration</h3>
+                <span class="project-category">AI Webinar Registration Automation</span>
+                <p class="project-description">An AI-powered workflow that classifies email registration intent with OpenRouter, routes contacts, registers qualified leads for Zoom webinars, and updates GoHighLevel for CRM follow-up.</p>
+                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>OpenRouter AI</span><span>Zoom</span><span>GoHighLevel</span></div></div>
               </div>
             </div>
+            <button class="project-preview automation-image-trigger" type="button" data-gallery="govcon-reg-ai-webinar-registration" aria-label="Open GovCon AI Webinar Registration workflow image" aria-haspopup="dialog">
+              <span class="project-preview-label">Workflow Preview</span>
+              <div class="project-image-frame project-image-placeholder"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789878105/Screenshot_2026-09-20_122109_hgakak.png" alt="GovCon AI webinar registration automation workflow"></div>
+            </button>
+          </article>
 
-            <aside class="verification-panel" aria-label="Featured validation status">
-              <div class="verification-stamp" aria-hidden="true">Production<strong>OK</strong>Verified</div>
-              <div class="verification-detail"><span>Verification ID</span>PV-0001</div>
-              <div class="verification-detail"><span>Source</span>Technical recommendation</div>
-              <div class="verification-detail"><span>Status</span>System verified</div>
-            </aside>
+          <article class="project-case blueprint-reveal" data-project-slug="auto-tagging-leads-utm" data-project-category="automation">
+            <div class="project-copy">
+              <div class="project-number"><span>Project</span></div>
+              <div class="project-info">
+                <h3>UTM Lead Tagging Automation</h3>
+                <span class="project-category">Lead Attribution Automation</span>
+                <p class="project-description">Automatically tags GoHighLevel leads by UTM source for accurate attribution, less manual work, and clearer campaign ROI.</p>
+                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>GoHighLevel</span><span>UTM</span><span>Lead Attribution</span></div></div>
+              </div>
+            </div>
+            <button class="project-preview automation-image-trigger" type="button" data-gallery="auto-tagging-leads-utm" aria-label="Open UTM Lead Tagging Automation workflow image" aria-haspopup="dialog">
+              <span class="project-preview-label">Workflow Preview</span>
+              <div class="project-image-frame project-image-placeholder"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789875297/image_1_tuhh0w.webp" alt="UTM Lead Tagging Automation workflow"></div>
+            </button>
+          </article>
+
+          <article class="project-case blueprint-reveal" data-project-slug="facebook-dm-struggle" data-project-category="automation">
+            <div class="project-copy">
+              <div class="project-number"><span>Project</span></div>
+              <div class="project-info">
+                <h3>Facebook DM - Struggle</h3>
+                <span class="project-category">Conversational Automation</span>
+                <p class="project-description">Automatically engages Facebook leads in Messenger, qualifies their needs, nurtures interest, and guides them toward a solution without manual follow-up.</p>
+                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>GoHighLevel</span><span>Facebook</span><span>Conversation Automation</span></div></div>
+              </div>
+            </div>
+            <button class="project-preview automation-image-trigger" type="button" data-gallery="facebook-dm-struggle" aria-label="Open Facebook DM - Struggle workflow image" aria-haspopup="dialog">
+              <span class="project-preview-label">Workflow Preview</span>
+              <div class="project-image-frame project-image-placeholder"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789876189/image_2_wkdbfu.webp" alt="Facebook DM - Struggle automation workflow"></div>
+            </button>
+          </article>
+
+          <article class="project-case blueprint-reveal" data-project-slug="7-days-ai-marketing" data-project-category="automation">
+            <div class="project-copy">
+              <div class="project-number"><span>Project</span></div>
+              <div class="project-info">
+                <h3>7 Days AI Marketing</h3>
+                <span class="project-category">AI Lead Nurture</span>
+                <p class="project-description">A seven-day AI nurture workflow that personalizes responses, handles objections, tracks engagement, and moves qualified leads through the sales pipeline with consistent automated follow-up.</p>
+                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>AI</span><span>GoHighLevel</span><span>Lead Nurture</span></div></div>
+              </div>
+            </div>
+            <button class="project-preview automation-image-trigger" type="button" data-gallery="7-days-ai-marketing" aria-label="Open 7 Days AI Marketing workflow image gallery" aria-haspopup="dialog">
+              <span class="project-preview-label">Workflow Preview</span>
+              <div class="project-image-frame project-image-placeholder"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789876470/image_3_ovywlt.webp" alt="7 Days AI Marketing automation workflow overview"></div>
+            </button>
+          </article>
+
+          <article class="project-case blueprint-reveal" data-project-slug="metricool-sheets-integration" data-project-category="automation">
+            <div class="project-copy">
+              <div class="project-number"><span>Project</span></div>
+              <div class="project-info">
+                <h3>Metricool x Sheets Integration</h3>
+                <span class="project-category">Marketing Data Automation</span>
+                <p class="project-description">A Make.com workflow that syncs Instagram analytics from Metricool to organized Google Sheets every 15 minutes, enabling real-time reporting without manual data entry.</p>
+                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>Make.com</span><span>Metricool</span><span>Google Sheets</span></div></div>
+              </div>
+            </div>
+            <button class="project-preview automation-image-trigger" type="button" data-gallery="metricool-sheets-integration" aria-label="Open Metricool x Sheets Integration workflow image" aria-haspopup="dialog">
+              <span class="project-preview-label">Workflow Preview</span>
+              <div class="project-image-frame project-image-placeholder"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789876948/13650ad2-8a96-4b15-84dd-b4daa2bbb2f8.png" alt="Metricool and Google Sheets integration workflow"></div>
+            </button>
+          </article>
+
+          <article class="project-case blueprint-reveal" data-project-slug="webinar-registration-automation" data-project-category="automation">
+            <div class="project-copy">
+              <div class="project-number"><span>Project</span></div>
+              <div class="project-info">
+                <h3>Webinar Registration Automation</h3>
+                <span class="project-category">Webinar & CRM Automation</span>
+                <p class="project-description">A GoHighLevel automation that streamlines webinar registration, CRM opportunity management, confirmation emails, and workflow enrollment in one connected process.</p>
+                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>GoHighLevel</span><span>Webinar</span><span>CRM</span></div></div>
+              </div>
+            </div>
+            <button class="project-preview automation-image-trigger" type="button" data-gallery="webinar-registration-automation" aria-label="Open Webinar Registration Automation workflow image" aria-haspopup="dialog">
+              <span class="project-preview-label">Workflow Preview</span>
+              <div class="project-image-frame project-image-placeholder"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789877057/image_6_zgpyia.webp" alt="Webinar Registration Automation workflow"></div>
+            </button>
+          </article>
+
+          <article class="project-case blueprint-reveal" data-project-slug="ceo-readiness-quiz" data-project-category="automation">
+            <div class="project-copy">
+              <div class="project-number"><span>Project</span></div>
+              <div class="project-info">
+                <h3>CEO Readiness Quiz Automation</h3>
+                <span class="project-category">Quiz Segmentation & Email Nurture</span>
+                <p class="project-description">An automated GoHighLevel nurture workflow that segments leads into CORE, SCALE, or LEGACY paths based on their quiz score, then delivers a tailored four-email follow-up sequence.</p>
+                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>GoHighLevel</span><span>Quiz Segmentation</span><span>Email Nurture</span></div></div>
+              </div>
+            </div>
+            <button class="project-preview automation-image-trigger" type="button" data-gallery="ceo-readiness-quiz" aria-label="Open CEO Readiness Quiz Automation workflow image" aria-haspopup="dialog">
+              <span class="project-preview-label">Workflow Preview</span>
+              <div class="project-image-frame project-image-placeholder"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789877175/image_7_f8c5fm.webp" alt="CEO Readiness Quiz CORE, SCALE, and LEGACY automation workflow"></div>
+            </button>
           </article>
         </div>
-
-        <div class="validation-records blueprint-reveal">
-          <p class="validation-records-label">Reference Records</p>
-          <div class="validation-grid">
-            <article class="validation-record">
-              <div class="record-head">
-                <div class="record-avatar" aria-hidden="true"><img src="https://res.cloudinary.com/dehxoymr1/image/upload/v1752305095/priyanka-khandalkar-home1_gmwzkz.jpg" alt=""></div>
-                <div class="record-content">
-                  <span class="record-id">REF-002</span>
-                  <h3>Priyanka Khandalkar</h3>
-                  <span class="record-role">CEO / SynrGEE</span>
-                </div>
-              </div>
-              <p class="record-quote">Emman is reliable, thoughtful, and always willing to support wherever needed. He brings patience, attention to detail, and a willingness to figure things out across automation, workflows, GoHighLevel, systems setup, website redesigns, and technical implementation.</p>
-              <div class="validation-tags">
-                <span>Automation</span>
-                <span>CRM</span>
-                <span>Systems Setup</span>
-                <span>Support</span>
-              </div>
-            </article>
-
-            <article class="validation-record">
-              <div class="record-head">
-                <div class="record-avatar" aria-hidden="true"><img src="https://assets.cdn.filesafe.space/gNneXfr2RlfusVYoGTGm/media/6a00185bbc1f77cc354f3354.jpg" alt=""></div>
-                <div class="record-content">
-                  <span class="record-id">REF-003</span>
-                  <h3>Sorimar Estrada</h3>
-                  <span class="record-role">CEO / Conscious Evolution Academy</span>
-                </div>
-              </div>
-              <p class="record-quote">From building my website to creating automations in GoHighLevel and solving what felt like impossible technical challenges, Emman has consistently shown incredible skill, patience, and dedication. Having him on my team has brought me so much peace of mind.</p>
-              <div class="validation-tags">
-                <span>Web Development</span>
-                <span>GoHighLevel</span>
-                <span>Automation</span>
-                <span>Client Care</span>
-              </div>
-            </article>
-
-            <article class="validation-record">
-              <div class="record-head">
-                <div class="record-avatar" aria-hidden="true"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1786367970/1771825922155_ljws22.jpg" alt=""></div>
-                <div class="record-content">
-                  <span class="record-id">REF-004</span>
-                  <h3>Pat Maruhomadil</h3>
-                  <span class="record-role">Client Success & Project Manager / SynrGEE</span>
-                </div>
-              </div>
-              <p class="record-quote">Emman has a rare ability to bridge creativity with technical precision, building websites that are visually engaging, strategically optimized for search visibility and performance, and supported by scalable integrations and automation.</p>
-              <div class="validation-tags">
-                <span>SEO</span>
-                <span>Prompt Engineering</span>
-                <span>Integration</span>
-                <span>Automation</span>
-              </div>
-            </article>
-
-            <article class="validation-record">
-              <div class="record-head">
-                <div class="record-avatar" aria-hidden="true"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1786369108/761597570_2516204698842610_6293559696852691458_n_spvdez.jpg" alt=""></div>
-                <div class="record-content">
-                  <span class="record-id">REF-005</span>
-                  <h3>Prince Christian Tolentino</h3>
-                  <span class="record-role">Software Engineer & Automation Specialist</span>
-                </div>
-              </div>
-              <p class="record-quote">Emman is a logical thinker, highly resourceful, and consistently delivers effective solutions. His knowledge of CRM platforms and workflow automation is deep, and his work is well organized and thoroughly documented.</p>
-              <div class="validation-tags">
-                <span>CRM</span>
-                <span>Workflow</span>
-                <span>Documentation</span>
-                <span>Problem Solving</span>
-              </div>
-            </article>
-          </div>
-        </div>
+      </section>
       </div>
     </section>
-
-    <section id="contact" class="intake-section" aria-labelledby="intake-title">
-      <div class="intake-shell">
-        <span class="intake-ruler intake-ruler--side" aria-hidden="true"></span>
-        <span class="intake-ruler intake-ruler--bottom" aria-hidden="true"></span>
-        <span class="intake-coordinate intake-coordinate--top" aria-hidden="true">System Blueprint v2.0</span>
-        <span class="intake-coordinate intake-coordinate--bottom" aria-hidden="true">Coord. X:1240 Y:860</span>
-
-        <div class="intake-layout">
-          <div class="intake-intro blueprint-reveal">
-            <div>
-              <p class="intake-kicker">07 / Let's Build</p>
-              <h2 id="intake-title">Let's Build Your Next <span>System.</span></h2>
-              <p class="intake-copy">Have a project, workflow, website, or automation in mind?</p>
-              <p class="intake-copy">I'd love to help you build it with clarity, structure, and systems that scale.</p>
-              <a class="blueprint-btn primary intake-booking-link" href="book-a-call/">Let's Talk <span class="arrow" aria-hidden="true">-></span></a>
-            </div>
-
-            <div class="intake-divider" aria-hidden="true"></div>
-
-            <aside class="contact-module" aria-label="Contact channels">
-              <span class="intake-label">Contact Channels</span>
-              <div class="contact-list">
-                <div class="contact-row">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
-                  <span>Email</span>
-                  <a href="mailto:hello@emmandev.com">hello@emmandev.com</a>
-                </div>
-                <div class="contact-row">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-12h4v2"></path><path d="M2 9h4v11H2z"></path><path d="M4 4h.01"></path></svg>
-                  <span>LinkedIn</span>
-                  <a href="https://www.linkedin.com/in/emman-sadiang-abay-768074274/" target="_blank" rel="noopener noreferrer">linkedin.com/in/emman-sadiang-abay-768074274</a>
-                </div>
-                <div class="contact-row">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3"></path><path d="M15 22v-3.9a3.4 3.4 0 0 0-1-2.6c3.2-.4 6.6-1.6 6.6-7A5.4 5.4 0 0 0 19 4.8 5 5 0 0 0 18.9 1S17.7.6 15 2.5a13.4 13.4 0 0 0-7 0C5.3.6 4.1 1 4.1 1A5 5 0 0 0 4 4.8 5.4 5.4 0 0 0 2.4 8.5c0 5.4 3.4 6.6 6.6 7a3.4 3.4 0 0 0-1 2.6V22"></path></svg>
-                  <span>GitHub</span>
-                  <a href="https://github.com/EngrKulot" target="_blank" rel="noopener noreferrer">github.com/EngrKulot</a>
-                </div>
-                <div class="contact-row">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.2 7-12A7 7 0 0 0 5 9c0 6.8 7 12 7 12Z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
-                  <span>Location</span>
-                  <strong>Manila, Philippines</strong>
-                </div>
-              </div>
-            </aside>
-
-          </div>
-
-          <div class="intake-form-column blueprint-reveal">
-            <div class="intake-form-shell">
-              <div class="form-heading">
-                <div>
-                  <span class="intake-label">Project Intake Form</span>
-                  <h3>Tell me about your project.</h3>
-                  <p>The more details you share, the better I can help.</p>
-                </div>
-                <div class="form-status">Status <span class="response-indicator" aria-hidden="true"></span> Ready</div>
-              </div>
-
-              <form id="project-intake-form" class="intake-form">
-                <div class="form-grid">
-                  <div class="field">
-                    <label for="intake-name">Name</label>
-                    <input id="intake-name" name="name" type="text" autocomplete="name" placeholder="Enter your name" required>
-                  </div>
-
-                  <div class="field">
-                    <label for="intake-email">Email</label>
-                    <input id="intake-email" name="email" type="email" autocomplete="email" placeholder="Enter your email" required>
-                  </div>
-
-                  <div class="field full">
-                    <label for="project-type">Project Type</label>
-                    <select id="project-type" name="project_type" required>
-                      <option value="">Select project type</option>
-                      <option>Website</option>
-                      <option>Landing Page</option>
-                      <option>Automation</option>
-                      <option>CRM</option>
-                      <option>GoHighLevel</option>
-                      <option>Custom System</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-
-                  <div class="field full">
-                    <label for="project-description">Project Description</label>
-                    <textarea id="project-description" name="project_description" placeholder="Tell me about your project, your goals, and the systems you want to build..." required></textarea>
-                  </div>
-
-                  <div class="field">
-                    <label for="budget-range">Budget Range <span>(Optional)</span></label>
-                    <select id="budget-range" name="budget_range">
-                      <option value="">Select budget range</option>
-                      <option>Under $500</option>
-                      <option>$500 - $1,000</option>
-                      <option>$1,000 - $2,500</option>
-                      <option>$2,500+</option>
-                      <option>Not sure yet</option>
-                    </select>
-                  </div>
-
-                  <div class="field">
-                    <label for="timeline">Timeline <span>(Optional)</span></label>
-                    <input id="timeline" name="timeline" type="text" placeholder="Preferred timeline">
-                  </div>
-                </div>
-
-                <div class="form-bottom">
-                  <label class="privacy-check">
-                    <input type="checkbox" name="privacy_acknowledgement" required>
-                    <span>All information is kept private.</span>
-                  </label>
-                  <button class="intake-submit" type="submit">Send Project Request <span aria-hidden="true">-></span></button>
-                </div>
-              </form>
-            </div>
-
-            <div class="response-grid form-response-grid">
-              <div class="response-card">
-                <span class="response-indicator" aria-hidden="true"></span>
-                <div><small>Typical Response</small><strong>Within 24 Hours</strong></div>
-              </div>
-              <div class="response-card">
-                <span class="response-indicator" aria-hidden="true"></span>
-                <div><small>Availability</small><strong>Open for New Projects</strong></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="intake-summary blueprint-reveal" aria-label="Project intake summary">
-          <div class="summary-cell">
-            <span class="intake-label">Current Availability</span>
-            <div class="summary-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><path d="M12 5v7l4 3"></path></svg></div>
-            <h3>Open for Projects</h3>
-            <p>Accepting new projects and long-term work.</p>
-          </div>
-
-          <div class="summary-cell">
-            <span class="intake-label">I Build</span>
-            <ul>
-              <li>Websites</li>
-              <li>Landing Pages</li>
-              <li>Automation Systems</li>
-              <li>CRM</li>
-            </ul>
-          </div>
-
-          <div class="summary-cell">
-            <span class="intake-label">Preferred Projects</span>
-            <ul>
-              <li>Business Websites</li>
-              <li>Funnels</li>
-              <li>Workflow Automation</li>
-              <li>AI Integrations</li>
-            </ul>
-          </div>
-
-          <div class="summary-cell">
-            <span class="intake-label">Closing Statement</span>
-            <h3>Let's build something extraordinary.</h3>
-            <p>Every great system starts with a conversation.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
+
+  <div class="automation-lightbox" id="automation-lightbox" role="dialog" aria-modal="true" aria-label="Automation workflow image preview" hidden>
+    <div class="automation-lightbox-frame">
+      <button class="automation-lightbox-close" type="button" aria-label="Close image preview">&times;</button>
+      <button class="automation-lightbox-nav automation-lightbox-prev" type="button" aria-label="Previous workflow image" hidden>&larr;</button>
+      <img src="" alt="">
+      <button class="automation-lightbox-nav automation-lightbox-next" type="button" aria-label="Next workflow image" hidden>&rarr;</button>
+      <span class="automation-lightbox-counter" aria-live="polite" hidden></span>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const lightbox = document.getElementById('automation-lightbox');
+      const lightboxImage = lightbox?.querySelector('img');
+      const closeButton = lightbox?.querySelector('.automation-lightbox-close');
+      const previousButton = lightbox?.querySelector('.automation-lightbox-prev');
+      const nextButton = lightbox?.querySelector('.automation-lightbox-next');
+      const counter = lightbox?.querySelector('.automation-lightbox-counter');
+      const triggers = document.querySelectorAll('.automation-image-trigger');
+      const galleries = {"rss-openai-gohighlevel-changelog":[{"src":"https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789877335/Screenshot_2026-09-20_120811_eiglxh.png","alt":"RSS, OpenAI, and GoHighLevel changelog automation workflow"}],"govcon-reg-ai-webinar-registration":[{"src":"https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789878105/Screenshot_2026-09-20_122109_hgakak.png","alt":"GovCon AI webinar registration automation workflow"}],"auto-tagging-leads-utm":[{"src":"https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789875297/image_1_tuhh0w.webp","alt":"UTM Lead Tagging Automation workflow"}],"facebook-dm-struggle":[{"src":"https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789876189/image_2_wkdbfu.webp","alt":"Facebook DM - Struggle automation workflow"}],"7-days-ai-marketing":[{"src":"https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789876470/image_3_ovywlt.webp","alt":"7 Days AI Marketing automation workflow overview"},{"src":"https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789876474/image_4_mbax7u.webp","alt":"7 Days AI Marketing workflow sequence"},{"src":"https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789876476/image_5_gmhx2g.webp","alt":"7 Days AI Marketing follow-up workflow"}],"metricool-sheets-integration":[{"src":"https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789876948/13650ad2-8a96-4b15-84dd-b4daa2bbb2f8.png","alt":"Metricool and Google Sheets integration workflow"}],"webinar-registration-automation":[{"src":"https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789877057/image_6_zgpyia.webp","alt":"Webinar Registration Automation workflow"}],"ceo-readiness-quiz":[{"src":"https://res.cloudinary.com/dzkbnsqwo/image/upload/v1789877175/image_7_f8c5fm.webp","alt":"CEO Readiness Quiz CORE, SCALE, and LEGACY automation workflow"}]};
+      let activeTrigger = null;
+      let activeGallery = [];
+      let activeIndex = 0;
+      let touchStartX = 0;
+
+      if (!lightbox || !lightboxImage || !closeButton || !previousButton || !nextButton || !counter || !triggers.length) return;
+
+      const renderImage = () => {
+        const image = activeGallery[activeIndex];
+        if (!image) return;
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt || 'Automation workflow image';
+        counter.textContent = String(activeIndex + 1).padStart(2, '0') + ' / ' + String(activeGallery.length).padStart(2, '0');
+        const hasMultipleImages = activeGallery.length > 1;
+        previousButton.hidden = !hasMultipleImages;
+        nextButton.hidden = !hasMultipleImages;
+        counter.hidden = !hasMultipleImages;
+      };
+
+      const showPreviousImage = () => {
+        if (activeGallery.length < 2) return;
+        activeIndex = (activeIndex - 1 + activeGallery.length) % activeGallery.length;
+        renderImage();
+      };
+
+      const showNextImage = () => {
+        if (activeGallery.length < 2) return;
+        activeIndex = (activeIndex + 1) % activeGallery.length;
+        renderImage();
+      };
+
+      const closeLightbox = () => {
+        lightbox.hidden = true;
+        document.body.classList.remove('has-automation-lightbox');
+        lightboxImage.src = '';
+        lightboxImage.alt = '';
+        activeGallery = [];
+        activeIndex = 0;
+        activeTrigger?.focus();
+        activeTrigger = null;
+      };
+
+      triggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          const gallery = galleries[trigger.dataset.gallery] || [];
+          if (!gallery.length) return;
+          activeTrigger = trigger;
+          activeGallery = gallery;
+          activeIndex = 0;
+          renderImage();
+          lightbox.hidden = false;
+          document.body.classList.add('has-automation-lightbox');
+          closeButton.focus();
+        });
+      });
+
+      closeButton.addEventListener('click', closeLightbox);
+      previousButton.addEventListener('click', showPreviousImage);
+      nextButton.addEventListener('click', showNextImage);
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+      lightboxImage.addEventListener('touchstart', (event) => {
+        touchStartX = event.changedTouches[0].clientX;
+      }, { passive: true });
+      lightboxImage.addEventListener('touchend', (event) => {
+        const distance = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(distance) < 50) return;
+        if (distance > 0) showPreviousImage();
+        else showNextImage();
+      }, { passive: true });
+      document.addEventListener('keydown', (event) => {
+        if (lightbox.hidden) return;
+        if (event.key === 'Escape') closeLightbox();
+        if (event.key === 'ArrowLeft') showPreviousImage();
+        if (event.key === 'ArrowRight') showNextImage();
+      });
+    })();
+  </script>
 
   <footer class="blueprint-footer" aria-labelledby="footer-title">
     <div class="blueprint-footer-shell">
@@ -7953,11 +8154,11 @@
           <div>
             <span class="blueprint-footer-label">Navigation</span>
             <nav class="blueprint-footer-nav" aria-label="Footer navigation">
-              <a href="#home">Home</a>
-              <a href="#behind-blueprint">About</a>
-              <a href="#projects">Projects</a>
-              <a href="#contact">Contact</a>
-              <a href="book-a-call/">Book a Call</a>
+              <a href="../#home">Home</a>
+              <a href="../#behind-blueprint">About</a>
+              <a href="./" aria-current="page">Projects</a>
+              <a href="../#contact">Contact</a>
+              <a href="../book-a-call/">Book a Call</a>
             </nav>
           </div>
 
