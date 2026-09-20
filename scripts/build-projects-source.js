@@ -34,7 +34,7 @@ const automationProjects = [
   {
     slug: 'rss-openai-gohighlevel-changelog',
     category: 'automation',
-    title: 'RSS-to-CRM Changelog Automation',
+    title: 'AI Changelog Automation',
     type: 'Multilingual Content Automation',
     description: 'A Make.com workflow that monitors RSS content, transforms it with OpenAI, updates GoHighLevel, and routes output into English and Spanish publishing paths automatically.',
     tags: ['Make.com', 'OpenAI', 'GoHighLevel'],
