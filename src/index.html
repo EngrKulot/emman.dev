@@ -8080,16 +8080,18 @@
       if (intakeForm) {
         const intakeButton = intakeForm.querySelector('button[type="submit"]');
         const intakeButtonDefault = intakeButton ? intakeButton.innerHTML : '';
+        let intakeSubmitting = false;
 
         intakeForm.addEventListener('submit', async (event) => {
           event.preventDefault();
+          if (intakeSubmitting) return;
 
-          const name = document.getElementById('intake-name')?.value.trim();
-          const email = document.getElementById('intake-email')?.value.trim();
-          const projectType = document.getElementById('project-type')?.value.trim();
-          const description = document.getElementById('project-description')?.value.trim();
-          const budgetRange = document.getElementById('budget-range')?.value.trim();
-          const timeline = document.getElementById('timeline')?.value.trim();
+          const name = document.getElementById('intake-name')?.value.trim() || '';
+          const email = document.getElementById('intake-email')?.value.trim() || '';
+          const projectType = document.getElementById('project-type')?.value.trim() || '';
+          const description = document.getElementById('project-description')?.value.trim() || '';
+          const budgetRange = document.getElementById('budget-range')?.value.trim() || '';
+          const timeline = document.getElementById('timeline')?.value.trim() || '';
           const privacyAccepted = intakeForm.querySelector('input[name="privacy_acknowledgement"]')?.checked;
 
           if (!name || !email || !projectType || !description || !privacyAccepted) {
@@ -8097,39 +8099,34 @@
             return;
           }
 
+          intakeSubmitting = true;
           if (intakeButton) {
             intakeButton.disabled = true;
             intakeButton.innerHTML = 'Sending Request <span aria-hidden="true">...</span>';
           }
 
           try {
-            const response = await fetch('https://n8n-kulot.onrender.com/webhook/contact-form', {
+            const response = await fetch('https://hook.us2.make.com/s3s8t8lpm9zba9v3ctmsm2kwdf2oqxip', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                source: 'Emman Portfolio Project Intake',
+                source: 'emmandev.com',
                 name,
                 email,
                 project_type: projectType,
-                project_description: description,
                 budget_range: budgetRange,
                 timeline,
-                privacy_acknowledgement: privacyAccepted,
+                project_description: description,
+                privacy_acknowledgement: true,
               }),
             });
 
-            const text = await response.text();
-            let data = {};
-
-            try {
-              data = text ? JSON.parse(text) : {};
-            } catch {
-              data = { message: text };
-            }
-
             if (!response.ok) {
-              throw new Error(data.message || 'Failed to send project request.');
+              throw new Error(`Project request failed: ${response.status}`);
             }
+
+            const data = await response.json();
+            if (data?.status !== 'ok') throw new Error('Project request was not confirmed.');
 
             alert('Thanks! I received your project request. I will reply soon.');
             intakeForm.reset();
@@ -8137,6 +8134,7 @@
             console.error(error);
             alert('Something went wrong. Please try again.');
           } finally {
+            intakeSubmitting = false;
             if (intakeButton) {
               intakeButton.disabled = false;
               intakeButton.innerHTML = intakeButtonDefault;
