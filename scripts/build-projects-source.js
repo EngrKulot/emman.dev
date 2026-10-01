@@ -921,14 +921,14 @@ let head = extract('<head>', '</head>')
 let header = extract('<header class="site-header" data-header>', '</header>')
   .replaceAll('href="#home"', 'href="../#home"')
   .replaceAll('href="#behind-blueprint"', 'href="../#behind-blueprint"')
-  .replaceAll('href="#projects"', 'href="./" aria-current="page"')
+  .replaceAll('href="projects/"', 'href="./" aria-current="page"')
   .replaceAll('href="#contact"', 'href="../#contact"')
   .replaceAll('href="book-a-call/"', 'href="../book-a-call/"');
 
 let footerAndScripts = homepage.slice(homepage.indexOf('<footer class="blueprint-footer"'))
   .replaceAll('href="#home"', 'href="../#home"')
   .replaceAll('href="#behind-blueprint"', 'href="../#behind-blueprint"')
-  .replaceAll('href="#projects"', 'href="./" aria-current="page"')
+  .replaceAll('href="projects/"', 'href="./" aria-current="page"')
   .replaceAll('href="#contact"', 'href="../#contact"')
   .replaceAll('href="book-a-call/"', 'href="../book-a-call/"');
 
