@@ -965,7 +965,7 @@ const siteLoaderMarkup = `
   </script>
   <div class="site-loader" data-site-loader role="status" aria-live="polite" aria-label="Loading emmandev.com">
     <div class="site-loader-content">
-      <img class="site-loader-logo" src="https://assets.cdn.filesafe.space/XlExwEOaS3a62QuZvpH4/media/6abccc9f6c64b8e488aa49a8.png" alt="">
+      <img class="site-loader-logo" src="https://assets.cdn.filesafe.space/XlExwEOaS3a62QuZvpH4/media/6abf56202c503e697d49da68.png" alt="">
       <span class="site-loader-status">Initializing Systems</span>
       <span class="site-loader-track" aria-hidden="true"></span>
     </div>
