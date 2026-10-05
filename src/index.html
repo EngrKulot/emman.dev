@@ -8346,6 +8346,7 @@
 
         intakeForm.addEventListener('submit', async (event) => {
           event.preventDefault();
+          event.stopPropagation();
           if (intakeSubmitting) return;
 
           const name = document.getElementById('intake-name')?.value.trim() || '';
@@ -8355,9 +8356,15 @@
           const budgetRange = document.getElementById('budget-range')?.value.trim() || '';
           const timeline = document.getElementById('timeline')?.value.trim() || '';
           const privacyAccepted = intakeForm.querySelector('input[name="privacy_acknowledgement"]')?.checked;
+          const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
           if (!name || !email || !projectType || !description || !privacyAccepted) {
             alert('Please complete the required project intake fields.');
+            return;
+          }
+
+          if (!validEmail) {
+            alert('Please enter a valid email address.');
             return;
           }
 
@@ -8563,10 +8570,14 @@
         syrixToggle.addEventListener('click', () => setSyrixOpen(!syrixOpen));
         if (syrixClose) syrixClose.addEventListener('click', () => setSyrixOpen(false));
         syrixInput.addEventListener('input', updateSyrixSendState);
-        syrixSend.addEventListener('click', sendSyrixMessage);
+        syrixSend.addEventListener('click', (event) => {
+          event.stopPropagation();
+          sendSyrixMessage();
+        });
         syrixInput.addEventListener('keydown', (event) => {
           if (event.key === 'Enter') {
             event.preventDefault();
+            event.stopPropagation();
             sendSyrixMessage();
           }
         });
