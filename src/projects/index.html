@@ -8451,7 +8451,7 @@
     <div class="syrix-input-area">
       <div class="syrix-input-wrap">
         <input class="syrix-input" id="syrix-input" type="text" placeholder="Type a message..." autocomplete="off">
-        <button class="syrix-send" id="syrix-send" type="button" aria-label="Send message">
+        <button class="syrix-send" id="syrix-send" type="button" aria-label="Send message" disabled>
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 1.5l13 6.5-13 6.5V9.5l9-3-9-3V1.5z"></path></svg>
         </button>
       </div>
@@ -8663,10 +8663,14 @@
           }
         };
 
+        const updateSyrixSendState = () => {
+          syrixSend.disabled = syrixWaiting || !syrixInput.value.trim();
+        };
+
         const setSyrixWaiting = (state) => {
           syrixWaiting = state;
-          syrixSend.disabled = state;
           syrixInput.disabled = state;
+          updateSyrixSendState();
         };
 
         const addSyrixMessage = (text, role) => {
@@ -8699,11 +8703,17 @@
           .trim();
 
         const sendSyrixMessage = async () => {
-          const text = syrixInput.value.trim();
-          if (!text || syrixWaiting) return;
+          const message = syrixInput.value.trim();
+          if (!message) {
+            syrixInput.focus();
+            updateSyrixSendState();
+            return;
+          }
+
+          if (syrixWaiting) return;
 
           syrixInput.value = '';
-          addSyrixMessage(text, 'user');
+          addSyrixMessage(message, 'user');
           setSyrixWaiting(true);
 
           const typing = showSyrixTyping();
@@ -8714,12 +8724,25 @@
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
                 conversation_id: conversationId,
-                message: text,
+                message,
               }),
             });
 
             if (!response.ok) {
-              throw new Error(`Syrix request failed: ${response.status}`);
+              const requestError = new Error(`Syrix request failed: ${response.status}`);
+
+              if (response.status === 400) {
+                try {
+                  const errorBody = JSON.parse(await response.text());
+                  if (errorBody?.error === 'Message is required.') {
+                    requestError.userMessage = 'Please enter a message and try again.';
+                  }
+                } catch (parseError) {
+                  console.warn('Syrix returned an unreadable validation response.', parseError);
+                }
+              }
+
+              throw requestError;
             }
 
             const reply = normalizeSyrixReply(await response.text());
@@ -8727,7 +8750,7 @@
             if (reply) addSyrixMessage(reply, 'bot');
           } catch (error) {
             typing.remove();
-            addSyrixMessage('Connection error. Please try again in a moment.', 'bot');
+            addSyrixMessage(error.userMessage || 'Connection error. Please try again in a moment.', 'bot');
             console.error(error);
           } finally {
             setSyrixWaiting(false);
@@ -8741,6 +8764,7 @@
 
         syrixToggle.addEventListener('click', () => setSyrixOpen(!syrixOpen));
         if (syrixClose) syrixClose.addEventListener('click', () => setSyrixOpen(false));
+        syrixInput.addEventListener('input', updateSyrixSendState);
         syrixSend.addEventListener('click', sendSyrixMessage);
         syrixInput.addEventListener('keydown', (event) => {
           if (event.key === 'Enter') {
@@ -8748,6 +8772,7 @@
             sendSyrixMessage();
           }
         });
+        updateSyrixSendState();
 
         document.addEventListener('keydown', (event) => {
           if (event.key === 'Escape' && syrixOpen) setSyrixOpen(false);
