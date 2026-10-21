@@ -6,6 +6,7 @@ const homepagePath = path.join(root, 'src', 'index.html');
 const projectsDirectory = path.join(root, 'src', 'projects');
 const projectsPath = path.join(projectsDirectory, 'index.html');
 const projectsOutputDirectory = path.join(root, 'docs', 'projects');
+const servicesOutputDirectory = path.join(root, 'docs', 'services');
 const homepage = fs.readFileSync(homepagePath, 'utf8');
 
 const extract = (start, end) => {
@@ -938,19 +939,10 @@ let head = extract('<head>', '</head>')
   .replace(/<title>[\s\S]*?<\/title>/, '<title>Projects | Emman Sadiang-abay</title>')
   .replace('</style>', `${pageStyles}  </style>`);
 
-let header = extract('<header class="site-header" data-header>', '</header>')
-  .replaceAll('href="#home"', 'href="../#home"')
-  .replaceAll('href="#behind-blueprint"', 'href="../#behind-blueprint"')
-  .replaceAll('href="projects/"', 'href="./" aria-current="page"')
-  .replaceAll('href="#contact"', 'href="../#contact"')
-  .replaceAll('href="book-a-call/"', 'href="../book-a-call/"');
-
-let footerAndScripts = homepage.slice(homepage.indexOf('<footer class="blueprint-footer"'))
-  .replaceAll('href="#home"', 'href="../#home"')
-  .replaceAll('href="#behind-blueprint"', 'href="../#behind-blueprint"')
-  .replaceAll('href="projects/"', 'href="./" aria-current="page"')
-  .replaceAll('href="#contact"', 'href="../#contact"')
-  .replaceAll('href="book-a-call/"', 'href="../book-a-call/"');
+const runtimeMarker = '<!-- PAGE_RUNTIME -->';
+const runtimeIndex = homepage.indexOf(runtimeMarker);
+if (runtimeIndex === -1) throw new Error('Homepage is missing its PAGE_RUNTIME marker.');
+const pageRuntime = homepage.slice(runtimeIndex + runtimeMarker.length).trimStart();
 
 const groupMarkup = groups.map((group) => `
       <section class="project-group" id="${group.id}" aria-labelledby="${group.id}-title">
@@ -979,24 +971,12 @@ const automationGalleries = Object.fromEntries(
     ])
     .filter(([, images]) => images.length),
 );
-const siteLoaderMarkup = `
-  <script>
-    document.documentElement.classList.add('has-site-loader');
-  </script>
-  <div class="site-loader" data-site-loader role="status" aria-live="polite" aria-label="Loading emmandev.com">
-    <div class="site-loader-content">
-      <img class="site-loader-logo" src="https://assets.cdn.filesafe.space/XlExwEOaS3a62QuZvpH4/media/6abf56202c503e697d49da68.png" alt="">
-      <span class="site-loader-status">Initializing Systems</span>
-      <span class="site-loader-track" aria-hidden="true"></span>
-    </div>
-  </div>`;
-
 const output = `<!DOCTYPE html>
 <html lang="en">
 ${head}
 <body>
-  ${siteLoaderMarkup}
-  ${header}
+  <!-- SITE_LOADER -->
+  <!-- SHARED_HEADER -->
 
   <main id="projects-page">
     <section class="projects-library" aria-labelledby="projects-library-title">
@@ -1154,9 +1134,11 @@ ${groupMarkup}
     })();
   </script>
 
-  ${footerAndScripts}`;
+  <!-- SHARED_FOOTER -->
+  ${pageRuntime}`;
 
 fs.mkdirSync(projectsDirectory, { recursive: true });
 fs.mkdirSync(projectsOutputDirectory, { recursive: true });
+fs.mkdirSync(servicesOutputDirectory, { recursive: true });
 fs.writeFileSync(projectsPath, output);
 console.log(`Generated ${path.relative(root, projectsPath)} with ${allCards.length} projects.`);
