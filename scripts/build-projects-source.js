@@ -184,6 +184,25 @@ const additionalProjectCards = [
             </a>
           </article>`,
   },
+  {
+    title: 'Tu Nueva Web',
+    markup: `<article class="project-case blueprint-reveal" data-project-slug="tu-nueva-web" data-project-category="landing-page">
+            <div class="project-copy">
+              <div class="project-number"><span>Project</span></div>
+              <div class="project-info">
+                <h3>Tu Nueva Web</h3>
+                <span class="project-category">Spanish Website Landing Page</span>
+                <p class="project-description">A Spanish-language landing page for XUM, presenting its website offering through a focused sales journey and a clear path for prospective customers to get started.</p>
+                <div class="project-stack"><span class="project-stack-label">Stack</span><div class="project-tags"><span>Landing Page</span><span>Spanish Content</span><span>XUM</span></div></div>
+                <a class="project-cta" href="https://tunuevaweb.xum.digital/" target="_blank" rel="noopener noreferrer">View Live Project <span aria-hidden="true">-&gt;</span></a>
+              </div>
+            </div>
+            <a class="project-preview" href="https://tunuevaweb.xum.digital/" target="_blank" rel="noopener noreferrer" aria-label="View Tu Nueva Web">
+              <span class="project-preview-label">Live Preview</span>
+              <div class="project-image-frame"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1792561678/Screenshot_2026-10-21_134247_mf2iyw.png" alt="Tu Nueva Web landing page preview"></div>
+            </a>
+          </article>`,
+  },
 ];
 const excludedProjectTitles = new Set(['Workflow Automation']);
 const allCards = [
@@ -205,6 +224,7 @@ const groups = [
       'EmpoweredU Collective',
       'Awaken Landing Page',
       'XUM CRM Changelog',
+      'Tu Nueva Web',
     ],
   },
   {
