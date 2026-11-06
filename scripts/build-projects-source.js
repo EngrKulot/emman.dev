@@ -204,6 +204,25 @@ const additionalProjectCards = [
             </a>
           </article>`,
   },
+  {
+    title: 'Anderson Financial Services',
+    markup: `<article class="project-case blueprint-reveal" data-project-slug="anderson-financial-services" data-project-category="website">
+            <div class="project-copy">
+              <div class="project-number"><span>Project</span></div>
+              <div class="project-info">
+                <h3>Anderson Financial Services</h3>
+                <span class="project-category">Financial Services Website</span>
+                <p class="project-description">A financial services website presenting tailored insurance solutions, adviser information, and a clear path for clients to get in touch.</p>
+                <div class="project-stack"><span class="project-stack-label">Focus</span><div class="project-tags"><span>Insurance Services</span><span>Client Enquiries</span></div></div>
+                <a class="project-cta" href="https://andersonfinancialservices.co.nz/" target="_blank" rel="noopener noreferrer">View Live Project <span aria-hidden="true">-&gt;</span></a>
+              </div>
+            </div>
+            <a class="project-preview" href="https://andersonfinancialservices.co.nz/" target="_blank" rel="noopener noreferrer" aria-label="View Anderson Financial Services">
+              <span class="project-preview-label">Live Preview</span>
+              <div class="project-image-frame"><img src="https://res.cloudinary.com/dzkbnsqwo/image/upload/v1793973981/Screenshot_2026-11-06_220439_iigzdb.png" alt="Anderson Financial Services website preview"></div>
+            </a>
+          </article>`,
+  },
 ];
 const excludedProjectTitles = new Set(['Workflow Automation']);
 const allCards = [
@@ -233,6 +252,7 @@ const groups = [
     label: '02 / Websites',
     description: 'Complete business, personal brand, service, hospitality, and venue websites.',
     titles: [
+      'Anderson Financial Services',
       'Priya Khandalkar Website',
       'Sorimar Estrada Website',
       'McCondach Movers & Storage',
