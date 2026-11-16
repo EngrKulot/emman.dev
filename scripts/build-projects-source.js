@@ -224,7 +224,7 @@ const additionalProjectCards = [
           </article>`,
   },
 ];
-const excludedProjectTitles = new Set(['Workflow Automation']);
+const excludedProjectTitles = new Set(['Workflow Automation', 'Eighty Eight Hotel Website']);
 const allCards = [
   ...cards.filter((card) => !excludedProjectTitles.has(card.title)),
   ...additionalProjectCards,
@@ -256,7 +256,6 @@ const groups = [
       'Priya Khandalkar Website',
       'Sorimar Estrada Website',
       'McCondach Movers & Storage',
-      'Eighty Eight Hotel Website',
       'Keri Keri Golf Club Website',
     ],
   },
