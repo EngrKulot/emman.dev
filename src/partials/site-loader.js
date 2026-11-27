@@ -4,6 +4,10 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (!siteLoader) return;
+  if (!root.classList.contains('has-site-loader')) {
+    siteLoader.remove();
+    return;
+  }
 
   const initializedAt = performance.now();
   const minimumDuration = reduceMotion ? 0 : 650;

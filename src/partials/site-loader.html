@@ -1,5 +1,20 @@
 <script>
-  document.documentElement.classList.add('has-site-loader');
+  (() => {
+    const navigation = performance.getEntriesByType('navigation')[0];
+    const legacyNavigationType = performance.navigation?.type;
+    const isReload = navigation?.type === 'reload' || (!navigation && legacyNavigationType === 1);
+    const isBackForward = navigation?.type === 'back_forward' || legacyNavigationType === 2;
+    let hasSameOriginReferrer = false;
+
+    try {
+      hasSameOriginReferrer = Boolean(document.referrer) && new URL(document.referrer).origin === window.location.origin;
+    } catch {}
+
+    const isInitialVisit = (!navigation || navigation.type === 'navigate') && !hasSameOriginReferrer;
+    if (!isBackForward && (isReload || isInitialVisit)) {
+      document.documentElement.classList.add('has-site-loader');
+    }
+  })();
 </script>
 <div class="site-loader" data-site-loader role="status" aria-live="polite" aria-label="Loading emmandev.com">
   <div class="site-loader-content">
