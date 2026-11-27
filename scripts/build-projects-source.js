@@ -27,8 +27,8 @@ const cards = [...homepage.matchAll(/<article class="project-case blueprint-reve
     return { title, markup };
   });
 
-if (cards.length !== 12) {
-  throw new Error(`Expected 12 project cards, found ${cards.length}`);
+if (cards.length !== 13) {
+  throw new Error(`Expected 13 project cards, found ${cards.length}`);
 }
 
 const automationProjects = [
@@ -253,6 +253,7 @@ const groups = [
     description: 'Complete business, personal brand, service, hospitality, and venue websites.',
     titles: [
       'Anderson Financial Services',
+      'Carwash Cafe Koronadal',
       'Priya Khandalkar Website',
       'Sorimar Estrada Website',
       'McCondach Movers & Storage',
